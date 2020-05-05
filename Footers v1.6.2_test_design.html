@@ -264,7 +264,7 @@ const allData ={
   beans = document.getElementById("beans");
   rg = document.getElementById('rg');
   machines = document.getElementById('machines');
-  debugger;
+
   if(marketX === "FR" || marketX === "ES" || marketX === "BE_FR" || marketX === "BE_NL" || marketX === "AT"){
     machinesdiv.style.display = "block";
   }
@@ -373,6 +373,7 @@ const allData ={
   function onOk() {
     
     changeBoxes();
+    
     let fdate = document.getElementById('first_date').value;
     let sdate = document.getElementById('second_date').value;
     const localDatef = new Date(fdate);
@@ -388,8 +389,8 @@ const allData ={
     + (localDates.getMonth()+1) 
     + allData.dot[marketX] + localDates.getFullYear()) : "" ;
 
-    localDatef.toLocaleDateString(marketX);
-    localDates.toLocaleDateString(marketX);
+    // localDatef.toLocaleDateString(marketX);
+    // localDates.toLocaleDateString(marketX);
     console.log("Now mov: " + MOV)
     console.log(zapyatayaApp)
     console.log(zapyatayaNotApp)
