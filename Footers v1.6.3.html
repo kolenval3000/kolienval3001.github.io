@@ -1,0 +1,519 @@
+<html>
+<head>
+  <link rel="stylesheet" href="bootstrap.min.css">
+  <title>Footer maker</title>
+</head>
+<body>
+
+
+
+<!--HTML-->
+<div class="jumbotron" style="margin-left: auto; margin-right: auto; max-width: 800px;">
+    <!--<div style="background-color:#ff00ff; width: 1px; height:1px; position: fixed; top:126px; left: 242px;z-index:9999;"></div>-->
+    <h1 class="display-3">L'OR Footer maker <span style="font-size: 14px;" >v.1.6.3</span></h1>
+    <p class="lead">Just do IT!</p>
+    <hr class="my-4">
+    <p>To start</p>
+    <div class="form-group"></div>
+          <select class="form-control" id="market" onchange="choseMarket()">
+          <option value="none" selected disabled hidden >Select a Market</option>
+          <option value="UK" id="UKmarketID">UK</option>
+          <option value="IE" id="IEmarketID">IE</option>
+          <option value="FR" id="FRmarketID">FR</option>
+          <option value="DE" id="DEmarketID">DE</option>
+          <option value="ES" id="ESmarketID">ES</option>
+          <option value="IT" id="ITmarketID">IT</option>
+          <option value="NL" id="ITmarketID">NL</option>
+          <option value="AT" id="ATmarketID">AT</option>
+          <option value="BE_FR" id="BE_FRmarketID">BE_FR</option>
+          <option value="BE_NL" id="BE_NLmarketID">BE_NL</option>
+        </select>
+
+    <div id="start" class="start" style="display: none;">
+        <div style="width: 243px; display: inline-block; padding: 12px 0px;">
+        <input class="form-control" type="date" id="first_date">
+        </div>
+
+        <div style="width: 243px; display: inline-block; padding: 10px;">
+        <input class="form-control" type="date" id="second_date">
+        </div>
+        
+        <div style="width: 243px; display: inline-block; padding: 0px;">
+        <input class="form-control" id="MOV" placeholder="MOV">
+        </div>
+        <hr class="my-4">
+    
+    <div>
+    <div class="custom-control custom-radio">
+        <input type="radio" value="excluding" id="excluding" name="delivery" class="custom-control-input">
+        <label class="custom-control-label" for="excluding">Excluding delivery</label>
+      </div>
+      <div class="custom-control custom-radio">
+        <input type="radio" value="including" id="including" name="delivery" class="custom-control-input">
+        <label class="custom-control-label" for="including">Including delivery</label>
+      </div>
+      <div class="custom-control custom-switch">
+        <input type="checkbox" value="notApplicableBox" class="custom-control-input" id="notApplicableBox">
+        <label class="custom-control-label" for="notApplicableBox">Not Applicable</label>
+      </div>
+    </div>
+      <hr class="my-4">
+
+    
+    <div>
+      <div class="custom-control custom-checkbox">
+        <input type="checkbox" value="capsules" class="custom-control-input" id="capsules">
+        <label class="custom-control-label" for="capsules">Сapsules</label>
+      </div>
+      <div class="custom-control custom-checkbox">
+        <input type="checkbox" value="bundles" class="custom-control-input" id="bundles">
+        <label class="custom-control-label" for="bundles">Bundles</label>
+      </div>
+      <div id="beansdiv" class="custom-control custom-checkbox" style="display: none;">
+        <input type="checkbox" value="beans" class="custom-control-input" id="beans">
+        <label class="custom-control-label" for="beans">Beans</label>
+      </div>
+      <div id="rgdiv" class="custom-control custom-checkbox" style="display: none;">
+        <input type="checkbox" value="rg" class="custom-control-input" id="rg">
+        <label class="custom-control-label" for="rg">R&G</label>
+      </div>
+      <div id="machinesdiv" class="custom-control custom-checkbox" style="display: none;">
+        <input type="checkbox" value="machines" class="custom-control-input" id="machines">
+        <label class="custom-control-label" for="machines">Machines</label>
+      </div>
+      <div class="custom-control custom-checkbox">
+        <input type="checkbox" value="accessories" class="custom-control-input" id="accessories">
+        <label class="custom-control-label" for="accessories">Accessories</label>
+      </div>
+
+    </div>
+    <hr class="my-4">
+    <div>
+        <div class="card text-white bg-secondary mb-3" style="max-width: 800px; margin-left: auto; margin-right: auto;">
+            <div class="card-header">Generated footer</div>
+            <div class="card-body">
+              <h4 id="title" id="" class="card-title"></h4>
+              <p id ="result" class="card-text"></p>
+            </div>
+          </div>
+    </div>
+    <hr class="my-4">
+    <button class="btn btn-primary" onclick="copyToClipboard()">СКОПИРОВАТЬ!!!!!!!!азазазаз111111</button>
+        
+
+
+    
+</div>
+
+
+        </div>
+
+  </div>
+<!--HTML-->
+
+
+
+<!--SCRIPT-->
+<script>
+  //DATA 
+const allData ={
+'dot': 
+{"UK" : ".",
+"IE" : ".",
+"DE" : ".",
+"FR" : "/",
+"ES" : "/",
+"IT" : "/",
+"NL" : "-",
+"BE_FR" : "/",
+"BE_NL" : "-",
+"AT" : ".",},
+'excluding':
+{"UK" : "(excluding delivery costs).",
+"IE" : "(excluding delivery costs).",
+"DE" : "(exklusive Liefergebühr).",
+"FR" : "(hors frais d’envoi).",
+"ES" : "(gastos de envío no incluidos).",
+"IT" : "(escluse spese di spedizione).",
+"NL" : "(exclusief bezorgkosten).",
+"BE_FR" : "(hors frais d’envoi).",
+"BE_NL" : "(exclusief bezorgkosten).",
+"AT" : "(exklusive Liefergebühr).",},
+'including':
+{"UK" : "(including delivery costs).",
+"IE" : "(including delivery costs).",
+"DE" : "(inklusive Versandkosten).",
+"FR" : "(coûts de livraison compris).",
+"ES" : "(incluyendo costos de envío).",
+"IT" : "(incluse le spese di spedizione).",
+"NL" : "(inclusief verzendkosten).",
+"BE_FR" : "(coûts de livraison compris).",
+"BE_NL" : "(inclusief verzendkosten).",
+"AT" : "(inklusive Versandkosten).",},
+'capsules':
+{"UK" : "capsules",
+"IE" : "capsules",
+"DE" : "Kapseln",
+"FR" : "paquets de capsules (simples et doubles)",
+"ES" : "cápsulas",
+"IT" : "capsule",
+"NL" : "capsules",
+"BE_FR" : "paquets de capsules (simples et doubles)",
+"BE_NL" : "capsules",
+"AT" : "Kapseln",},
+'beans':
+{"UK" : " ",
+"IE" : " ",
+"DE" : " ",
+"FR" : "café en grain",
+"ES" : " ",
+"IT" : " ",
+"NL" : "bonen",
+"BE_FR" : " ",
+"BE_NL" : "bonen",
+"AT" : "Bohnen",},
+'bundles':
+{"UK" : "capsule bundles",
+"IE" : "capsule bundles",
+"DE" : "Kapsel-Bundles",
+"FR" : "coffrets",
+"ES" : "paquetes de cápsulas",
+"IT" : "assortimenti di capsule",
+"NL" : "capsule bundels",
+"BE_FR" : "Coffrets",
+"BE_NL" : "capsule bundels",
+"AT" : "Kapsel-Pakete",},
+'accessories':
+{"UK" : "accessories (glasses, capsule collection, gift box etc)",
+"IE" : "accessories (glasses, capsule collection, gift box etc)",  
+"DE" : "Accessoires (Gläser, Kapsel Kollektionen, Kaspelboxen, etc.)",
+"FR" : "accessoires (verres, collection de capsules, boîte cadeau etc)",
+"ES" : "accesorios (tazas, colección de cápsulas, caja regalo, etc.)",
+"IT" : "accessori (tazzine, kit per caffè, confezioni regalo, ecc)",
+"NL" : "accessoires (glazen, capsulecollectie, geschenkdozen, etc.)",
+"BE_FR" : "accessoires (verres, collection de capsules, boîte cadeau etc)",
+"BE_NL" : "accessoires (glazen, capsulecollectie, geschenkdozen, etc.)",
+"AT" : "Accessoires (Gläser, Kapsel-Kollektionen, Geschenkboxen usw.)",},
+'rg':
+{"UK" : "R&G",
+"IE" : " ",
+"DE" : " ",
+"FR" : "café moulu",
+"ES" : " ",
+"IT" : " ",
+"NL" : " ",
+"BE_FR" : " ",
+"BE_NL" : " ",
+"AT" : " ",},
+'machines':
+{"UK" : " ",
+"IE" : " ",
+"DE" : " ",
+"FR" : "d'une machine à café L'OR BARISTA et le mousseur à lait",
+"ES" : "la cafetera L'OR BARISTA y el espumador de leche",
+"IT" : " ",
+"NL" : " ",
+"BE_FR" : "d'une machine à café L'OR BARISTA et le mousseur à lait",
+"BE_NL" : "L'OR BARISTA koffiemachines en de melkopschuimer",
+"AT" : "die L'OR BARISTA Maschine und den Milchschäumer",},
+'and':
+{"UK" : " and ",
+"IE" : " and ",
+"DE" : " und ",
+"FR" : " et ",
+"ES" : " y ",
+"IT" : " e ",
+"NL" : " en ",
+"BE_FR" : " et ",
+"BE_NL" : " en ",
+"AT" : " und ",}
+};
+
+
+
+  //Variables
+  let marketX;
+  let MOV = "";
+  let excluding = {applicable: "", notApplicable: ""};
+  let including = {applicable: "", notApplicable: ""};
+  let bundles = {applicable: "", notApplicable: ""};
+  let capsules = {applicable: "", notApplicable: ""};
+  let accessories = {applicable: "", notApplicable: ""};
+  let beans = {applicable: "", notApplicable: ""};
+  let machines = {applicable: "", notApplicable: ""};
+  let rg = {applicable: "", notApplicable: ""};
+  let and;
+  let blockstyle = "none";
+  let zapyatayaApp = 0;
+  let zapyatayaNotApp = 0;
+  let znak;
+  let excludingInput = document.getElementById('excluding');
+  let includingInput = document.getElementById('including');
+  let capsulesInput = document.getElementById('capsules');
+  let bundlesInput = document.getElementById('bundles');
+  let beansInput = document.getElementById("beans");
+  let rgInput = document.getElementById('rg');
+  let accessoriesInput = document.getElementById('accessories');
+  let machinesInput = document.getElementById('machines');
+  let notApplicableBox = document.getElementById('notApplicableBox');
+  let staticPhrase;
+
+  //Functions
+
+  //Chose Market
+  function choseMarket(){
+  marketX = document.getElementById('market').value;
+  document.getElementById("start").style.display = "block";
+  beans = document.getElementById("beans");
+  rg = document.getElementById('rg');
+  machines = document.getElementById('machines');
+
+  if(marketX === "FR" || marketX === "ES" || marketX === "BE_FR" || marketX === "BE_NL" || marketX === "AT"){
+    machinesdiv.style.display = "block";
+  }
+  else{
+    machinesdiv.style.display = "none";
+    machines.checked=false;
+  }
+
+  if(marketX === "UK" || marketX === "FR"){
+    rgdiv.style.display = "block";
+  }
+  else{
+    rgdiv.style.display = "none";
+    rg.checked=false;
+  }
+
+  if(marketX === "FR" || marketX === "NL" || marketX === "AT"){
+    beansdiv.style.display = "block";
+  }
+  else{
+    beansdiv.style.display = "none";
+    beans.checked=false;
+  }
+
+  zapyatayaApp = 0;
+    
+    switch(marketX){
+      case "IE" : 
+      case "DE" :
+      case "IT" : zapyatayaNotApp = -3;
+      break;
+      case "UK" : 
+      case "ES" :
+      case "NL" : 
+      case "BE_FR" :
+      case "BE_NL" : zapyatayaNotApp = -2;
+      break;
+      case "AT" : zapyatayaNotApp = -1;
+      break;
+      case "FR" : zapyatayaNotApp = 0;
+      break;
+      
+    }
+ }
+
+
+   // Boxes function
+ function changeBoxes(){
+    zapyatayaApp = 0;
+    article = "";
+
+    
+    switch(marketX){
+      case "IE" : 
+      case "DE" :
+      case "IT" : zapyatayaNotApp = -3;
+      break;
+      case "UK" : 
+      case "ES" :
+      case "NL" : 
+      case "BE_FR" : 
+      case "BE_NL" : zapyatayaNotApp = -2;
+      break;
+      case "AT" : zapyatayaNotApp = -1;
+      break;
+      case "FR" : zapyatayaNotApp = 0;
+      break;
+      
+    }
+    MOV = document.getElementById("MOV").value;
+    excluding = excludingInput.checked? allData[excludingInput.value][marketX] : "";
+    including = includingInput.checked? allData[includingInput.value][marketX] : "";
+    setStr(capsules, capsulesInput);
+    setStr(bundles, bundlesInput);
+    setStr(beans, beansInput);
+    setStr(rg, rgInput);
+    setStr(accessories, accessoriesInput);
+    and = allData.and[marketX];
+    setStr(machines, machinesInput);
+
+    znak = {'empty': '', '2': allData.and[marketX], '1': '', '3': ', ', '4': ', ', '5': ', ', '6': ', '};
+    
+    if (notApplicableBox.checked){ 
+      blockstyle = "block";
+    }
+     else{
+      blockstyle = "none";
+    }
+    
+  }
+  // Chose nedded sting from DATA
+  function setStr(item, input){
+    if (input.checked) {
+      zapyatayaApp ++;
+      item.applicable = allData[input.value][marketX];
+      item.notApplicable = "";
+      }
+      else{
+        zapyatayaNotApp ++;
+        item.applicable = "";
+        item.notApplicable = allData[input.value][marketX];
+      }
+    
+  }
+
+  //Copy TO Clipboard
+  function copyToClipboard(){
+  const el = document.createElement('textarea');
+  el.value = document.getElementById("result").innerText;
+  // debugger;
+  document.body.appendChild(el);
+  el.select();
+  document.execCommand('copy');
+  document.body.removeChild(el);
+  }
+  
+
+
+  //ADD selected information
+  function onOk() {
+    
+    changeBoxes();
+    
+    let fdate = document.getElementById('first_date').value;
+    let sdate = document.getElementById('second_date').value;
+    const localDatef = new Date(fdate);
+    const localDates = new Date(sdate);
+    
+    let fdateStr = fdate? ((localDatef.getDate() < 10 ? '0' : '') + localDatef.getDate() 
+    + allData.dot[marketX] + (localDatef.getMonth() < 10 ? '0' : '') 
+    + (localDatef.getMonth()+1) 
+    + allData.dot[marketX] + localDatef.getFullYear()) : "" ;
+    
+    let sdateStr = sdate? ((localDates.getDate() < 10 ? '0' : '') + localDates.getDate() 
+    + allData.dot[marketX] + (localDates.getMonth() < 10 ? '0' : '') 
+    + (localDates.getMonth()+1) 
+    + allData.dot[marketX] + localDates.getFullYear()) : "" ;
+
+    // localDatef.toLocaleDateString(marketX);
+    // localDates.toLocaleDateString(marketX);
+    console.log("Now mov: " + MOV)
+    console.log(zapyatayaApp)
+    console.log(zapyatayaNotApp)
+    console.log(znak)
+    console.log(article)
+    //footers
+    let articles =  {"capsules": "", "beans" : "", "bundles" : "", "rg" : "", "machines" : "", "accesories" : ""};
+    if (capsulesInput.checked){
+          articles.capsules=" les ";
+      }
+      if (bundlesInput.checked && !capsulesInput.checked){
+        articles.bundles=" les ";
+      }
+      if (beansInput.checked && !capsulesInput.checked && !bundlesInput.checked){
+        articles.beans=" le ";
+      }
+      if (rgInput.checked && !bundlesInput.checked && !beansInput.checked && !capsulesInput.checked ){
+        articles.rg=" le ";
+      }
+      if (machinesInput.checked && !rgInput.checked && !bundlesInput.checked && !beansInput.checked && !capsulesInput.checked ){
+        articles.machines=" l'achat ";
+      }
+      if (accessoriesInput.checked && !machinesInput.checked && !rgInput.checked && !bundlesInput.checked && !beansInput.checked && !capsulesInput.checked ){
+        articles.accesories=" les ";
+      }
+
+    
+    switch(marketX){
+      case 'UK' : staticPhrase = `<div>*Promotion available from ${fdateStr} until 23:59 on ${sdateStr}.</div>
+        <div>This promotion is valid with a £${MOV} minimum order value ${excluding}${including}</div>
+        <div>Applicable on ${capsules.applicable}${capsules.applicable === '' ? znak.empty : znak[zapyatayaApp--]}${bundles.applicable}${bundles.applicable === '' ? znak.empty : znak[zapyatayaApp--]}${rg.applicable}${rg.applicable === '' ? znak.empty : znak[zapyatayaApp--]}${accessories.applicable}.</div>
+        <div style="display: ${blockstyle};">Not applicable on ${capsules.notApplicable}${capsules.notApplicable === '' ? znak.empty : znak[zapyatayaNotApp--]}${bundles.notApplicable}${bundles.notApplicable === '' ? znak.empty : znak[zapyatayaNotApp--]}${rg.notApplicable}${rg.notApplicable === '' ? znak.empty : znak[zapyatayaNotApp--]}${accessories.notApplicable}.</div>
+        Standard website terms and conditions apply.`;
+        break;
+      case 'IE' : staticPhrase = `*Promotion available from ${fdateStr} until 23:59 on ${sdateStr}.
+        <br>This promotion is valid with a €${MOV} minimum order value ${excluding}${including}
+        <div>Applicable on ${capsules.applicable}${capsules.applicable === '' ? znak.empty : znak[zapyatayaApp--]}${bundles.applicable}${bundles.applicable === '' ? znak.empty : znak[zapyatayaApp--]}${accessories.applicable}.</div>
+        <div style="display: ${blockstyle};">Not applicable on ${capsules.notApplicable}${capsules.notApplicable === '' ? znak.empty : znak[zapyatayaNotApp--]}${bundles.notApplicable}${bundles.notApplicable === '' ? znak.empty : znak[zapyatayaNotApp--]}${accessories.notApplicable}.</div>
+        Standard website terms and conditions apply.`;
+        break;
+      case 'DE' : staticPhrase = `*Angebot erhältlich vom ${fdateStr} bis zum ${sdateStr} um 23:59 Uhr.
+        <br>Dieses Angebot ist nur gültig bei einem Mindestbestellwert von ${MOV}<span>&nbsp;</span>€ ${excluding}${including}
+        <div>Gültig für ${capsules.applicable}${capsules.applicable === '' ? znak.empty : znak[zapyatayaApp--]}${bundles.applicable}${bundles.applicable === '' ? znak.empty : znak[zapyatayaApp--]}${accessories.applicable}.</div>
+        <div style="display: ${blockstyle};">Gilt nicht für ${capsules.notApplicable}${capsules.notApplicable === '' ? znak.empty : znak[zapyatayaNotApp--]}${bundles.notApplicable}${bundles.notApplicable === '' ? znak.empty : znak[zapyatayaNotApp--]}${accessories.notApplicable}</div>
+        Es gelten die Allgemeinen Geschäftsbedingungen der Webseite.`;
+        break;
+      case 'FR' : staticPhrase = `*Promotion disponible du ${fdateStr} au ${sdateStr} à 23h59.
+        Cette promotion est valable pour toute commande d'un montant minimum de ${MOV} € ${excluding}${including}
+        <div>Applicable sur ${articles.capsules}${capsules.applicable}${capsules.applicable === '' ? znak.empty : znak[zapyatayaApp--]}${articles.bundles}${bundles.applicable}${bundles.applicable === '' ? znak.empty : znak[zapyatayaApp--]}${articles.beans}${beans.applicable}${beans.applicable === '' ? znak.empty : znak[zapyatayaApp--]}${articles.rg}${rg.applicable}${rg.applicable === '' ? znak.empty : znak[zapyatayaApp--]}${articles.machines}${machines.applicable}${machines.applicable === '' ? znak.empty : znak[zapyatayaApp--]}${articles.accesories}${accessories.applicable}.</div>
+        <div style="display: ${blockstyle};">Elle n'est pas valable sur ${articles.capsules}${capsules.notApplicable}${capsules.notApplicable === '' ? znak.empty : znak[zapyatayaNotApp--]}${articles.bundles}${bundles.notApplicable}${bundles.notApplicable === '' ? znak.empty : znak[zapyatayaNotApp--]}${articles.beans}${beans.notApplicable}${beans.notApplicable === '' ? znak.empty : znak[zapyatayaNotApp--]}${articles.rg}${rg.notApplicable}${rg.notApplicable === '' ? znak.empty : znak[zapyatayaNotApp--]}${articles.machines}${machines.notApplicable}${machines.notApplicable === '' ? znak.empty : znak[zapyatayaNotApp--]}${articles.accesories}${accessories.notApplicable}.</div>
+        Les conditions d’utilisation standard du site s’appliquent.`;
+        break;
+      case 'ES' : staticPhrase = `*Promoción disponible desde el ${fdateStr} hasta las 23:59 del ${sdateStr}.
+        <br>Esta oferta solo es válida para compras mínimas de ${MOV}€ ${excluding}${including}
+        <div>Válida para ${capsules.applicable}${capsules.applicable === '' ? znak.empty : znak[zapyatayaApp--]}${bundles.applicable}${bundles.applicable === '' ? znak.empty : znak[zapyatayaApp--]}${machines.applicable}${machines.applicable === '' ? znak.empty : znak[zapyatayaApp--]}${accessories.applicable}.</div>
+        <div style="display: ${blockstyle};">Esta oferta no es válida para la compra de ${capsules.notApplicable}${capsules.notApplicable === '' ? znak.empty : znak[zapyatayaNotApp--]}${bundles.notApplicable}${bundles.notApplicable === '' ? znak.empty : znak[zapyatayaNotApp--]}${machines.notApplicable}${machines.notApplicable === '' ? znak.empty : znak[zapyatayaNotApp--]}${accessories.notApplicable}.</div>
+        Se aplican los términos y condiciones generales del sitio web.`;
+        break;
+      case 'IT' : staticPhrase = `*Promozione disponibile dal ${fdateStr} alle 23:59 del ${sdateStr}.
+        <br>La presente promozione è valida con un ordine minimo di €${MOV} ${excluding}${including}
+        <div>Valida su ${capsules.applicable}${capsules.applicable === '' ? znak.empty : znak[zapyatayaApp--]}${bundles.applicable}${bundles.applicable === '' ? znak.empty : znak[zapyatayaApp--]}${accessories.applicable}.</div>
+        <div style="display: ${blockstyle};">Non si applica agli alle ${capsules.notApplicable}${capsules.notApplicable === '' ? znak.empty : znak[zapyatayaNotApp--]}${bundles.notApplicable}${bundles.notApplicable === '' ? znak.empty : znak[zapyatayaNotApp--]}${accessories.notApplicable}.</div>
+        Si applicano termini e condizioni standard del sito web.`;
+        break;
+      case 'NL' : staticPhrase = `*Aanbieding geldig van ${fdateStr} tot ${sdateStr}, 23:59 uur.
+        <br>Deze aanbieding is geldig bij een minimum bestelbedrag van €${MOV} ${excluding}${including}
+        <div>Van toepassing ${capsules.applicable}${capsules.applicable === '' ? znak.empty : znak[zapyatayaApp--]}${bundles.applicable}${bundles.applicable === '' ? znak.empty : znak[zapyatayaApp--]}${beans.applicable}${beans.applicable === '' ? znak.empty : znak[zapyatayaApp--]}${accessories.applicable}.</div>
+        <div style="display: ${blockstyle};">Niet geldig voor ${capsules.notApplicable}${capsules.notApplicable === '' ? znak.empty : znak[zapyatayaNotApp--]}${bundles.notApplicable}${bundles.notApplicable === '' ? znak.empty : znak[zapyatayaNotApp--]}${beans.notApplicable}${beans.notApplicable === '' ? znak.empty : znak[zapyatayaNotApp--]}${accessories.notApplicable}.</div>
+        De standaard algemene voorwaarden van de website zijn van toepassing.`;
+        break;
+      case 'BE_FR' : staticPhrase = `*Promotion disponible du ${fdateStr} au ${sdateStr} à<span>&nbsp;</span>23h59.
+        <br>Cette promotion est valable pour toute commande d'un montant minimum de ${MOV} € ${excluding}${including}
+        <div>Applicable sur${articles.capsules}${capsules.applicable}${capsules.applicable === '' ? znak.empty : znak[zapyatayaApp--]}${articles.bundles}${bundles.applicable}${bundles.applicable === '' ? znak.empty : znak[zapyatayaApp--]}${articles.machines}${machines.applicable}${machines.applicable === '' ? znak.empty : znak[zapyatayaApp--]}${articles.accesories}${accessories.applicable}.</div>
+        <div style="display: ${blockstyle};">Elle n'est pas valable sur${articles.capsules}${capsules.notApplicable}${capsules.notApplicable === '' ? znak.empty : znak[zapyatayaNotApp--]}${articles.bundles}${bundles.notApplicable}${bundles.notApplicable === '' ? znak.empty : znak[zapyatayaNotApp--]}${articles.machines}${machines.notApplicable}${machines.notApplicable === '' ? znak.empty : znak[zapyatayaNotApp--]}${articles.accesories}${accessories.notApplicable}.</div>
+        Les conditions d’utilisation standard du site s’appliquent.`;
+        break;
+      case 'BE_NL' : staticPhrase = `*Aanbieding geldig van ${fdateStr} tot ${sdateStr}, 23:59 uur.
+        <br>Deze aanbieding is geldig bij een minimum besteding vanaf €${MOV} ${excluding}${including}
+        <div>Van toepassing op ${capsules.applicable}${capsules.applicable === '' ? znak.empty : znak[zapyatayaApp--]}${bundles.applicable}${bundles.applicable === '' ? znak.empty : znak[zapyatayaApp--]}${machines.applicable}${machines.applicable === '' ? znak.empty : znak[zapyatayaApp--]}${accessories.applicable}.</div>
+        <div style="display: ${blockstyle};">Niet geldig voor ${capsules.notApplicable}${capsules.notApplicable === '' ? znak.empty : znak[zapyatayaNotApp--]}${bundles.notApplicable}${bundles.notApplicable === '' ? znak.empty : znak[zapyatayaNotApp--]}${beans.notApplicable}${machines.notApplicable}${machines.notApplicable === '' ? znak.empty : znak[zapyatayaNotApp--]}${accessories.notApplicable}.</div>
+        De standaard algemene voorwaarden van de website zijn van toepassing.`;
+        break;
+      case 'AT' : staticPhrase = `*Angebot erhältlich vom ${fdateStr} bis zum ${sdateStr} um 23:59 Uhr.
+        <br>Dieses Angebot ist nur gültig bei einem Mindestbestellwert von ${MOV}<span>&nbsp;</span>€ ${excluding}${including}
+        <div>Gültig für ${capsules.applicable}${capsules.applicable === '' ? znak.empty : znak[zapyatayaApp--]}${bundles.applicable}${bundles.applicable === '' ? znak.empty : znak[zapyatayaApp--]}${beans.applicable}${beans.applicable === '' ? znak.empty : znak[zapyatayaApp--]}${machines.applicable}${machines.applicable === '' ? znak.empty : znak[zapyatayaApp--]}${accessories.applicable}.</div>
+        <div style="display: ${blockstyle};">Das Angebot gilt nicht für ${capsules.notApplicable}${capsules.notApplicable === '' ? znak.empty : znak[zapyatayaNotApp--]}${bundles.notApplicable}${bundles.notApplicable === '' ? znak.empty : znak[zapyatayaNotApp--]}${beans.notApplicable}${beans.notApplicable === '' ? znak.empty : znak[zapyatayaNotApp--]}${machines.notApplicable}${machines.notApplicable === '' ? znak.empty : znak[zapyatayaNotApp--]}${accessories.notApplicable}.</div>
+        Es gelten die Allgemeinen Geschäftsbedingungen der Webseite.`;
+        break;
+    }
+
+    document.getElementById('result').innerHTML = staticPhrase;
+    document.getElementById('title').innerHTML = `For market ${marketX}`;
+    
+    
+
+
+    }
+    
+    //Load page after changes
+    document.getElementsByTagName("body")[0].addEventListener("change", onOk);
+    
+
+
+
+  </script>
+  <!--END SCRIPT-->
+
+</body>
+</html>
