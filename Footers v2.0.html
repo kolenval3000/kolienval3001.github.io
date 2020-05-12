@@ -40,7 +40,7 @@ background-color:rgb(34, 34, 34);
 }
 .text {
   font-weight: 100;
-  font-size: 28px;
+  font-size: 45px;
   color: #fafafa;
 }
 .dud {
@@ -79,13 +79,13 @@ background-color:rgb(34, 34, 34);
           <option value="BE_NL" id="BE_NLmarketID">BE_NL</option>
         </select>
 
-    <div id="start" style="display: none;">
+    <div id="start" style="display: none; transition: 1s;">
         <hr class="my-4">
-    <div class="custom-control custom-switch" style="padding-bottom: 30px;">
+    <div class="custom-control custom-switch">
             <input type="checkbox" value="firstPromo" class="custom-control-input" id="firstPromo">
             <label class="custom-control-label" for="firstPromo">First promo</label>
     </div>
-    <div class="promo1" id="promo1" style="display: none;">
+    <div class="promo1" id="promo1" style="display: none; padding-top: 20px;">
         <div class="box1" disabled="">
             <input class="form-control" type="date" id="first_date">
             <input class="form-control" type="date" id="second_date">
@@ -133,11 +133,11 @@ background-color:rgb(34, 34, 34);
         </div>
     </div>
     <hr class="my-4">
-    <div class="custom-control custom-switch" style="padding-bottom: 30px;">
+    <div class="custom-control custom-switch">
         <input type="checkbox" value="secondPromo" class="custom-control-input" id="secondPromo">
         <label class="custom-control-label" for="secondPromo">Second promo</label>
     </div>
-    <div class="promo2" id="promo2" style="display: none;">
+    <div class="promo2" id="promo2" style="display: none; padding-top: 20px;">
         <div class="box1">
             <input class="form-control" type="date" id="first_date2">
             <input class="form-control" type="date" id="second_date2">
@@ -185,11 +185,11 @@ background-color:rgb(34, 34, 34);
         </div>
     </div>
     <hr class="my-4">
-    <div class="custom-control custom-switch" style="padding-bottom: 30px;">
+    <div class="custom-control custom-switch">
         <input type="checkbox" value="machinePromo" class="custom-control-input" id="machinePromo">
         <label class="custom-control-label" for="machinePromo">Machine promo (only machines markets)</label>
     </div>
-    <div class="promo3" id="promo3" style="display: none;">
+    <div class="promo3" id="promo3" style="display: none; padding-top: 20px;">
         <div class="box3">
             <fieldset id="promo3dates" disabled="">
             <input class="form-control" type="date" id="first_date3">
@@ -203,7 +203,7 @@ background-color:rgb(34, 34, 34);
         <div class="card text-white bg-secondary mb-3" style="max-width: 800px; margin-left: auto; margin-right: auto;">
             <div id="title" class="card-header">Generated footer</div>
             <div id="allFooter" class="card-body">
-              <p id ="oneStar" class="card-text mb-0"></p>
+              <p id ="oneStar" style="display: none;" class="card-text mb-0"></p>
               <p id ="twoStar" style="display: none;" class="card-text mb-0"></p>
               <p id ="threeStar" style="display: none;" class="card-text mb-0"></p>
               <p id ="terms" class="card-text"></p>
@@ -233,7 +233,7 @@ background-color:rgb(34, 34, 34);
     // START PRELOADER
 
 let preload = document.getElementById('containerpr');
-setTimeout(() => containerpr.style.display = "none", 8000);
+setTimeout(() => containerpr.style.display = "none", 1000);
  
 
 class TextScramble {
@@ -586,6 +586,7 @@ const allData ={
     
     if (firstPromo.checked) {
     promo1.style.display = "block";
+    oneStar.style.display = "block";
 
     MOV = document.getElementById("MOV").value;
     excludingInput = document.getElementById('excluding');
@@ -607,7 +608,8 @@ const allData ={
 
     }
     else{
-    promo1.style.display = "none";   
+    promo1.style.display = "none";
+    oneStar.style.display = "none";   
     }
 
 
