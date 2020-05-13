@@ -60,7 +60,7 @@ background-color:rgb(34, 34, 34);
   </div>
 <div class="jumbotron" style="margin-left: auto; margin-right: auto; max-width: 800px;">
     <!--<div style="background-color:#ff00ff; width: 1px; height:1px; position: fixed; top:126px; left: 242px;z-index:9999;"></div>-->
-    <h1 class="display-3">L'OR Footer maker <span style="font-size: 14px;" >v.2.0</span></h1>
+    <h1 class="display-3">L'OR Footer maker <span style="font-size: 14px; color: yellow;" >v.2.0</span></h1>
     <p class="lead">Just do IT!</p>
     <hr class="my-4">
     <p>To start</p>
@@ -230,10 +230,30 @@ background-color:rgb(34, 34, 34);
 <!--SCRIPT-->
 <script>
 
-    // START PRELOADER
 
-let preload = document.getElementById('containerpr');
-setTimeout(() => containerpr.style.display = "none", 0);
+    // START PRELOADER
+    
+
+    let delayPr;
+    //localStorage.clear()
+    delayPr = localStorage.getItem("delayPr");
+    if (delayPr==8000){
+        localStorage.setItem("delayPr", 0)
+    }
+    delayPr = localStorage.getItem("delayPr");
+    if (delayPr==null){
+        delayPr=8000;
+        localStorage.setItem("delayPr", 8000)
+    }
+    if (delayPr==0){
+
+    }
+    let preload = document.getElementById('containerpr');
+    setTimeout(() => containerpr.style.display = "none", delayPr);
+
+
+
+
  
 
 class TextScramble {
@@ -474,6 +494,7 @@ const allData ={
   let staticPhrase;
   let machinePromoSt;
   let result = "";
+  
 
   //Functions
 
@@ -579,6 +600,20 @@ const allData ={
   //onOk function
   
   function onOk(){
+    //Storage
+
+    // if (prSw.checked){
+    // //debugger;
+    // delayPr = localStorage.getItem("delayPr");
+    // localStorage.setItem("delayPr", 0);
+    // }
+    // else{
+    // delayPr = localStorage.getItem("delayPr");
+    // localStorage.setItem("delayPr", 8000);
+    // }
+    // End Storage
+
+
     result = "";
 
    
