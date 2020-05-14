@@ -264,6 +264,7 @@
         machinesdiv.style.display = "none";
         machinesdiv2.style.display = "none";
         machines.checked=false;
+        machines2.checked=false;
       }
     
       if(marketX === "UK" || marketX === "FR"){
@@ -274,6 +275,7 @@
         rgdiv.style.display = "none";
         rgdiv2.style.display = "none";
         rg.checked=false;
+        rg2.checked=false;
       }
     
       if(marketX === "FR" || marketX === "NL" || marketX === "AT"){
@@ -284,6 +286,7 @@
         beansdiv.style.display = "none";
         beansdiv2.style.display = "none";
         beans.checked=false;
+        beans2.checked=false;
       }
     
     
