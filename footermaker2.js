@@ -297,29 +297,29 @@
         attempt.style.display = "inline-block";
       }
     
-      zapyatayaApp = 0;
+    //   zapyatayaApp = 0;
         
-        switch(marketX){
-          case "IE" : 
-          case "DE" :
-          case "IT" : zapyatayaNotApp = -3;
-          break;
-          case "UK" : 
-          case "ES" :
-          case "NL" : 
-          case "BE_FR" :
-          case "BE_NL" : zapyatayaNotApp = -2;
-          break;
-          case "AT" : zapyatayaNotApp = -1;
-          break;
-          case "FR" : zapyatayaNotApp = 0;
-          break;
+    //     switch(marketX){
+    //       case "IE" : 
+    //       case "DE" :
+    //       case "IT" : zapyatayaNotApp = -3;
+    //       break;
+    //       case "UK" : 
+    //       case "ES" :
+    //       case "NL" : 
+    //       case "BE_FR" :
+    //       case "BE_NL" : zapyatayaNotApp = -2;
+    //       break;
+    //       case "AT" : zapyatayaNotApp = -1;
+    //       break;
+    //       case "FR" : zapyatayaNotApp = 0;
+    //       break;
           
-        }
+    //     }
      }
     
     
-      // Chose nedded sting from DATA
+      // Chose needed sting from DATA
       function setStr(item, input){
           //debugger;
         if (input.checked) {
