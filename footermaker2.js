@@ -429,19 +429,19 @@
             break;
           case 'DE' : machinePromoSt = ``;
             break;
-          case 'FR' : machinePromoSt = `Promotion valable du ${fdate} au ${sdate} à 23:59. Consultez les conditions générales de l'offre <a alias="termsandconditions" conversion="false" data-linkto="other" href="httpgetwrap|https://www.lorespresso.com/fr_fr/conditions-generales-de-la-promotion" style="color:#666666;text-decoration:underline;" target="_blank" title="">ici</a>.`;
+          case 'FR' : machinePromoSt = `Promotion valable du ${fdateStr} au ${sdateStr} à 23:59. Consultez les conditions générales de l'offre <a alias="termsandconditions" conversion="false" data-linkto="other" href="httpgetwrap|https://www.lorespresso.com/fr_fr/conditions-generales-de-la-promotion" style="color:#666666;text-decoration:underline;" target="_blank" title="">ici</a>.`;
             break;
-          case 'ES' : machinePromoSt = `Promoción disponible a partir del ${fdate} hasta las 23:59 h del 27/03/2020. Consulta los términos y condiciones de la oferta <a alias="termsandconditions" conversion="false" data-linkto="other" href="httpgetwrap|https://www.lorespresso.com/es_es/condiciones-de-la-promocion" style="color:#666666;text-decoration:underline;" target="_blank" title="">aquí</a>.`;
+          case 'ES' : machinePromoSt = `Promoción disponible a partir del ${fdateStr} hasta las 23:59 h del ${sdateStr}. Consulta los términos y condiciones de la oferta <a alias="termsandconditions" conversion="false" data-linkto="other" href="httpgetwrap|https://www.lorespresso.com/es_es/condiciones-de-la-promocion" style="color:#666666;text-decoration:underline;" target="_blank" title="">aquí</a>.`;
             break;
           case 'IT' : machinePromoSt = ``;
             break;
           case 'NL' : machinePromoSt = ``;
             break;
-          case 'BE_FR' : machinePromoSt = `Promotion disponible du ${fdate} au ${sdate} à 23h59. Consultez les conditions générales de l'offre <a alias="termsandconditions" conversion="false" data-linkto="other" href="httpgetwrap|https://www.lorespresso.com/fr_be/conditions-generales-de-la-promotion" style="color:#666666;text-decoration:underline;" target="_blank" title="">ici</a>."`;
+          case 'BE_FR' : machinePromoSt = `Promotion disponible du ${fdateStr} au ${sdateStr} à 23h59. Consultez les conditions générales de l'offre <a alias="termsandconditions" conversion="false" data-linkto="other" href="httpgetwrap|https://www.lorespresso.com/fr_be/conditions-generales-de-la-promotion" style="color:#666666;text-decoration:underline;" target="_blank" title="">ici</a>."`;
             break;
-          case 'BE_NL' : machinePromoSt = `Aanbieding geldig van ${fdate} tot ${sdate}, 23:59 uur. Bekijk hier de <a alias="termsandconditions" conversion="false" data-linkto="other" href="httpgetwrap|https://www.lorespresso.com/nl_be/algemene-gebruiksvoorwaarden" style="color:#666666;text-decoration:underline;" target="_blank" title="">aanbiedingsvoorwaarden</a>.`;
+          case 'BE_NL' : machinePromoSt = `Aanbieding geldig van ${fdateStr} tot ${sdateStr}, 23:59 uur. Bekijk hier de <a alias="termsandconditions" conversion="false" data-linkto="other" href="httpgetwrap|https://www.lorespresso.com/nl_be/algemene-gebruiksvoorwaarden" style="color:#666666;text-decoration:underline;" target="_blank" title="">aanbiedingsvoorwaarden</a>.`;
             break;
-          case 'AT' : machinePromoSt = `Angebot gilt vom ${fdate} bis 23:59 Uhr am ${sdate}. Hier erfährst du mehr zu den <a alias="termsandconditions" conversion="false" data-linkto="other" href="httpgetwrap|https://www.lorespresso.com/de_at/allgemeine-geschaftsbedingungen" style="color:#666666;text-decoration:underline;" target="_blank" title="">Angebotsbedingungen</a>.`;
+          case 'AT' : machinePromoSt = `Angebot gilt vom ${fdateStr} bis 23:59 Uhr am ${sdateStr}. Hier erfährst du mehr zu den <a alias="termsandconditions" conversion="false" data-linkto="other" href="httpgetwrap|https://www.lorespresso.com/de_at/allgemeine-geschaftsbedingungen" style="color:#666666;text-decoration:underline;" target="_blank" title="">Angebotsbedingungen</a>.`;
             break;
         }
         let result3 = (firstPromo.checked? ((marketX === "FR" || marketX === "ES" || marketX === "AT" || marketX === "BE_FR" || marketX === "BE_NL")? "<br>**" : "") : "") + (secondPromo.checked? ((marketX === "FR" || marketX === "ES" || marketX === "AT" || marketX === "BE_FR" || marketX === "BE_NL")? "*" : "") : "") + machinePromoSt;
