@@ -562,22 +562,27 @@
           if (accessoriesInput.checked && !machinesInput.checked && !rgInput.checked && !bundlesInput.checked && !beansInput.checked && !capsulesInput.checked ){
             articles.accesories=" les ";
           }
-          
+
           if (!capsulesInput.checked){
+            articlesNot.capsules=" les ";
+          }
+          if (!bundlesInput.checked && capsulesInput.checked){
             articlesNot.bundles=" les ";
           }
-          if (!bundlesInput.checked && !capsulesInput.checked){
+          if (!beansInput.checked && capsulesInput.checked && bundlesInput.checked){
             articlesNot.beans=" le ";
           }
-          if (!beansInput.checked && !capsulesInput.checked && !bundlesInput.checked){
+          if (!rgInput.checked && bundlesInput.checked && beansInput.checked && capsulesInput.checked ){
             articlesNot.rg=" le ";
           }
-          if (!rgInput.checked && !bundlesInput.checked && !beansInput.checked && !capsulesInput.checked ){
+          if (!machinesInput.checked && rgInput.checked && bundlesInput.checked && beansInput.checked && capsulesInput.checked ){
             articlesNot.machines=" l'achat ";
           }
-          if (!machinesInput.checked && !rgInput.checked && !bundlesInput.checked && !beansInput.checked && !capsulesInput.checked ){
+          if (!accessoriesInput.checked && machinesInput.checked && rgInput.checked && bundlesInput.checked && beansInput.checked && capsulesInput.checked ){
             articlesNot.accesories=" les ";
           }
+          
+          
     
         //Footer switcher
         switch(marketX){
