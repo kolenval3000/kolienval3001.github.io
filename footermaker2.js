@@ -602,6 +602,11 @@
           if (!machinesInput.checked && rgInput.checked && bundlesInput.checked && beansInput.checked && capsulesInput.checked ){
             articlesNot.machines=" l'achat ";
           }
+          //for BE_FR start
+          if (!machinesInput.checked && accessoriesInput.checked && bundlesInput.checked && capsulesInput.checked ){
+            articlesNot.machines=" l'achat ";
+          }
+          //for BE_FR end
           if (!accessoriesInput.checked && machinesInput.checked && rgInput.checked && bundlesInput.checked && beansInput.checked && capsulesInput.checked ){
             articlesNot.accesories=" les ";
           }
