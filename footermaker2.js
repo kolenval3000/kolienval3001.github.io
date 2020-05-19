@@ -354,8 +354,10 @@
       //onOk function
       
       function onOk(){
+
+
         result = "";
-        
+
         document.getElementById('title').innerHTML = `Generated for <span style="font-size: 20px; color: #F39C12";>${marketX}</span> market!`;
         
         if (firstPromo.checked) {
@@ -373,6 +375,7 @@
         machinesInput = document.getElementById('machines');
         fdate = document.getElementById('first_date').value;
         sdate = document.getElementById('second_date').value;
+
         notApplicableBox = document.getElementById('notApplicableBox');
     
         let result1 = setFooter();    
@@ -424,16 +427,19 @@
         sdate = document.getElementById('second_date3').value;
         const localDatef = new Date(fdate);
         const localDates = new Date(sdate);
+        if (localDatef && localDates && localDatef >= localDates){    
+          window.alert("The second date is the smaller or equal first date in machine promo. Please change the second date!");
+        } 
+          let fdateStr = fdate? ((localDatef.getDate() < 10 ? '0' : '') + localDatef.getDate() 
+          + allData.dot[marketX] + (localDatef.getMonth() < 10 ? '0' : '') 
+          + (localDatef.getMonth()+1) 
+          + allData.dot[marketX] + localDatef.getFullYear()) : "" ;
+          
+          let sdateStr = sdate? ((localDates.getDate() < 10 ? '0' : '') + localDates.getDate() 
+          + allData.dot[marketX] + (localDates.getMonth() < 10 ? '0' : '') 
+          + (localDates.getMonth()+1) 
+          + allData.dot[marketX] + localDates.getFullYear()) : "" ;
         
-        let fdateStr = fdate? ((localDatef.getDate() < 10 ? '0' : '') + localDatef.getDate() 
-        + allData.dot[marketX] + (localDatef.getMonth() < 10 ? '0' : '') 
-        + (localDatef.getMonth()+1) 
-        + allData.dot[marketX] + localDatef.getFullYear()) : "" ;
-        
-        let sdateStr = sdate? ((localDates.getDate() < 10 ? '0' : '') + localDates.getDate() 
-        + allData.dot[marketX] + (localDates.getMonth() < 10 ? '0' : '') 
-        + (localDates.getMonth()+1) 
-        + allData.dot[marketX] + localDates.getFullYear()) : "" ;
         
         
     
@@ -462,7 +468,6 @@
         let result3 = (firstPromo.checked? ((marketX === "FR" || marketX === "ES" || marketX === "AT" || marketX === "BE_FR" || marketX === "BE_NL")? "<br>**" : "") : "") + (secondPromo.checked? ((marketX === "FR" || marketX === "ES" || marketX === "AT" || marketX === "BE_FR" || marketX === "BE_NL")? "*" : "") : "") + machinePromoSt;
         document.getElementById('threeStar').innerHTML = result3;
         result += result3;
-        
         }
         else{
         promo3.style.display = "none";
@@ -496,7 +501,8 @@
         
         document.getElementById('terms').innerHTML = staticPhraseTC;
         result += "<br>" + staticPhraseTC;    
-      }
+    }
+
       
     
     
@@ -554,6 +560,9 @@
         
         const localDatef = new Date(fdate);
         const localDates = new Date(sdate);
+        if (localDatef && localDates && localDatef >= localDates){    
+          window.alert("The second date is the smaller or equal first date. Please change the second date!");
+        }
         
         let fdateStr = fdate? ((localDatef.getDate() < 10 ? '0' : '') + localDatef.getDate() 
         + allData.dot[marketX] + (localDatef.getMonth() < 10 ? '0' : '') 
