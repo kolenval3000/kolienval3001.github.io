@@ -156,7 +156,7 @@
     "IE" : "capsule bundles",
     "DE" : "Kapsel-Bundles",
     "FR" : "coffrets",
-    "ES" : "paquetes de cápsulas",
+    "ES" : "lotes",
     "IT" : "assortimenti di capsule",
     "NL" : "capsule bundels",
     "BE_FR" : "сoffrets",
