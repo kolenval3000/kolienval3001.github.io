@@ -462,7 +462,7 @@
             break;
           case 'BE_NL' : machinePromoSt = `Aanbieding geldig van ${fdateStr} tot ${sdateStr}, 23:59 uur.<br>Bekijk hier de <a alias="termsandconditions" conversion="false" data-linkto="other" href="httpgetwrap|https://www.lorespresso.com/nl_be/algemene-gebruiksvoorwaarden" style="color:#666666;text-decoration:underline;" target="_blank" title="">aanbiedingsvoorwaarden</a>.`;
             break;
-          case 'AT' : machinePromoSt = `Angebot erhältlich vom ${fdateStr} bis zum ${sdateStr} um 23:59 Uhr.<br>Hier erfährst du mehr zu den <a alias="termsandconditions" conversion="false" data-linkto="other" href="httpgetwrap|https://www.lorespresso.com/de_at/allgemeine-geschaftsbedingungen" style="color:#666666;text-decoration:underline;" target="_blank" title="">Angebotsbedingungen</a>.`;
+          case 'AT' : machinePromoSt = `Angebot erhältlich vom ${fdateStr} bis zum ${sdateStr} um 23:59 Uhr.<br>Hier erfährst du mehr zu den <a alias="termsandconditions" conversion="false" data-linkto="other" href="httpgetwrap|https://www.lorespresso.com/de_at/angebotskonditionen" style="color:#666666;text-decoration:underline;" target="_blank" title="">Angebotsbedingungen</a>.`;
             break;
         }
         let result3 = (firstPromo.checked? ((marketX === "FR" || marketX === "ES" || marketX === "AT" || marketX === "BE_FR" || marketX === "BE_NL")? "<br>**" : "") : "") + (secondPromo.checked? ((marketX === "FR" || marketX === "ES" || marketX === "AT" || marketX === "BE_FR" || marketX === "BE_NL")? "*" : "") : "") + machinePromoSt;
