@@ -271,18 +271,22 @@
       machines = document.getElementById('machines');
       if(marketX === "NL"){
         combDiv.style.display = "none";
+        combDiv2.style.display = "none";
       }
       else{
         combDiv.style.display = "block";
+        combDiv2.style.display = "block";
       }
     
       if(marketX === "FR" || marketX === "ES" || marketX === "BE_FR" || marketX === "BE_NL" || marketX === "AT"){
         machinesdiv.style.display = "block";
         machinesdiv2.style.display = "block";
+        combDiv3.style.display = "block";
       }
       else{
         machinesdiv.style.display = "none";
         machinesdiv2.style.display = "none";
+        combDiv3.style.display = "none";
         machines.checked=false;
         machines2.checked=false;
       }
@@ -416,6 +420,7 @@
         MOV = document.getElementById("MOV2").value;
         excludingInput = document.getElementById('excluding2');
         includingInput = document.getElementById('including2');
+        combinedInput = document.getElementById('notCombined2');
         capsulesInput = document.getElementById('capsules2');
         bundlesInput = document.getElementById('bundles2');
         beansInput = document.getElementById("beans2");
@@ -441,7 +446,8 @@
         if (machinePromo.checked){
         promo3.style.display = "block";
         threeStar.style.display = "block";
-        
+        combinedInput = document.getElementById('notCombined3');
+        combined = combinedInput.checked? allData[combinedInput.value][marketX] : "";
         fdate = document.getElementById('first_date3').value;
         sdate = document.getElementById('second_date3').value;
         const localDatef = new Date(fdate);
@@ -469,7 +475,7 @@
             break;
           case 'DE' : machinePromoSt = ``;
             break;
-          case 'FR' : machinePromoSt = `Promotion disponible du ${fdateStr} au ${sdateStr} à 23h59.<br>Consultez les conditions générales de l'offre <a alias="termsandconditions" conversion="false" data-linkto="other" href="httpgetwrap|https://www.lorespresso.com/fr_fr/conditions-generales-de-la-promotion" style="color:#666666;text-decoration:underline;" target="_blank" title="">ici</a>.`;
+          case 'FR' : machinePromoSt = `Promotion disponible du ${fdateStr} au ${sdateStr} à 23h59.<br>Consultez les conditions générales de l'offre <a alias="termsandconditions" conversion="false" data-linkto="other" href="httpgetwrap|https://www.lorespresso.com/fr_fr/conditions-generales-de-la-promotion" style="color:#666666;text-decoration:underline;" target="_blank" title="">ici</a>.${combined}`;
             break;
           case 'ES' : machinePromoSt = `Promoción disponible desde el ${fdateStr} hasta las 23:59 del ${sdateStr}.<br>Consulta los términos y condiciones de la oferta <a alias="termsandconditions" conversion="false" data-linkto="other" href="httpgetwrap|https://www.lorespresso.com/es_es/condiciones-de-promocion" style="color:#666666;text-decoration:underline;" target="_blank" title="">aquí</a>.`;
             break;
