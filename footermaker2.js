@@ -107,6 +107,17 @@
     "BE_FR" : "/",
     "BE_NL" : "-",
     "AT" : ".",},
+    'combined':
+    {"UK" : "This promotion can not be combined with any other promotions.",
+    "IE" : "This promotion can not be combined with any other promotions.",
+    "DE" : "Dieses Angebot kann nicht mit anderen Angeboten kombiniert werden.",
+    "FR" : "Cette offre n'est pas combinable avec d'autres promotions.",
+    "ES" : "No acumulable con otras promociones.",
+    "IT" : "Non cumulabile con altre promozioni.",
+    "NL" : " ",
+    "BE_FR" : "Cette offre n'est pas combinable avec d'autres promotions.",
+    "BE_NL" : "Deze promo is niet cumuleerbaar met andere promoties.",
+    "AT" : "Dieses Angebot ist nicht mit anderen Angeboten kombinierbar.",},
     'excluding':
     {"UK" : "(excluding delivery costs).",
     "IE" : "(excluding delivery costs).",
@@ -213,6 +224,8 @@
       //Variables
     let marketX;
     let MOV = "";
+    let combinedInput;
+    let combined = "";
     let excluding = {applicable: "", notApplicable: ""};
     let including = {applicable: "", notApplicable: ""};
     let bundles = {applicable: "", notApplicable: ""};
@@ -256,6 +269,12 @@
       beans = document.getElementById("beans");
       rg = document.getElementById('rg');
       machines = document.getElementById('machines');
+      if(marketX === "NL"){
+        combDiv.style.display = "none";
+      }
+      else{
+        combDiv.style.display = "block";
+      }
     
       if(marketX === "FR" || marketX === "ES" || marketX === "BE_FR" || marketX === "BE_NL" || marketX === "AT"){
         machinesdiv.style.display = "block";
@@ -355,7 +374,6 @@
       
       function onOk(){
 
-
         result = "";
 
         document.getElementById('title').innerHTML = `Generated for <span style="font-size: 20px; color: #F39C12";>${marketX}</span> market!`;
@@ -365,6 +383,7 @@
         oneStar.style.display = "block";
     
         MOV = document.getElementById("MOV").value;
+        combinedInput = document.getElementById('notCombined');
         excludingInput = document.getElementById('excluding');
         includingInput = document.getElementById('including');
         capsulesInput = document.getElementById('capsules');
@@ -532,7 +551,7 @@
           break;
           
         }
-        
+        combined = combinedInput.checked? allData[combinedInput.value][marketX] : "";
         excluding = excludingInput.checked? allData[excludingInput.value][marketX] : "";
         including = includingInput.checked? allData[includingInput.value][marketX] : "";
         setStr(capsules, capsulesInput);
@@ -624,7 +643,7 @@
     
         //Footer switcher
         switch(marketX){
-          case 'UK' : staticPhrase = `*Promotion available from ${fdateStr} until 23:59 on ${sdateStr}.<br>This promotion is valid with a £${MOV} minimum order value ${excluding}${including}<span style="display: ${blockstyle2};"><br>Applicable on ${capsules.applicable}${capsules.applicable === '' ? znak.empty : znak[zapyatayaApp--]}${bundles.applicable}${bundles.applicable === '' ? znak.empty : znak[zapyatayaApp--]}${rg.applicable}${rg.applicable === '' ? znak.empty : znak[zapyatayaApp--]}${accessories.applicable}.<span style="display: ${blockstyle};"><br>Not applicable on ${capsules.notApplicable}${capsules.notApplicable === '' ? znak.empty : znak[zapyatayaNotApp--]}${bundles.notApplicable}${bundles.notApplicable === '' ? znak.empty : znak[zapyatayaNotApp--]}${rg.notApplicable}${rg.notApplicable === '' ? znak.empty : znak[zapyatayaNotApp--]}${accessories.notApplicable}.</span>`;
+          case 'UK' : staticPhrase = `*Promotion available from ${fdateStr} until 23:59 on ${sdateStr}.<br>This promotion is valid with a £${MOV} minimum order value ${excluding}${including}<span style="display: ${blockstyle2};"><br>Applicable on ${capsules.applicable}${capsules.applicable === '' ? znak.empty : znak[zapyatayaApp--]}${bundles.applicable}${bundles.applicable === '' ? znak.empty : znak[zapyatayaApp--]}${rg.applicable}${rg.applicable === '' ? znak.empty : znak[zapyatayaApp--]}${accessories.applicable}.<span style="display: ${blockstyle};"><br>Not applicable on ${capsules.notApplicable}${capsules.notApplicable === '' ? znak.empty : znak[zapyatayaNotApp--]}${bundles.notApplicable}${bundles.notApplicable === '' ? znak.empty : znak[zapyatayaNotApp--]}${rg.notApplicable}${rg.notApplicable === '' ? znak.empty : znak[zapyatayaNotApp--]}${accessories.notApplicable}.<br>${combined}</span>`;
             break;
           case 'IE' : staticPhrase = `*Promotion available from ${fdateStr} until 23:59 on ${sdateStr}.<br>This promotion is valid with a €${MOV} minimum order value ${excluding}${including}<span style="display: ${blockstyle2};"><br>Applicable on ${capsules.applicable}${capsules.applicable === '' ? znak.empty : znak[zapyatayaApp--]}${bundles.applicable}${bundles.applicable === '' ? znak.empty : znak[zapyatayaApp--]}${accessories.applicable}.<span style="display: ${blockstyle};"><br>Not applicable on ${capsules.notApplicable}${capsules.notApplicable === '' ? znak.empty : znak[zapyatayaNotApp--]}${bundles.notApplicable}${bundles.notApplicable === '' ? znak.empty : znak[zapyatayaNotApp--]}${accessories.notApplicable}.</span>`;
             break;
