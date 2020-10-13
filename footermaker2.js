@@ -455,13 +455,13 @@
         if (localDatef && localDates && localDatef >= localDates){    
           window.alert("The second date is the smaller or equal first date in machine promo. Please change the second date!");
         } 
-          let fdateStr = fdate? ((localDatef.getDate() < 11 ? '0' : '') + localDatef.getDate() 
-          + allData.dot[marketX] + (localDatef.getMonth() < 11 ? '0' : '') 
+          let fdateStr = fdate? ((localDatef.getDate() < 9 ? '0' : '') + localDatef.getDate() 
+          + allData.dot[marketX] + (localDatef.getMonth() < 9 ? '0' : '') 
           + (localDatef.getMonth()+1) 
           + allData.dot[marketX] + localDatef.getFullYear()) : "" ;
           
-          let sdateStr = sdate? ((localDates.getDate() < 11 ? '0' : '') + localDates.getDate() 
-          + allData.dot[marketX] + (localDates.getMonth() < 11 ? '0' : '') 
+          let sdateStr = sdate? ((localDates.getDate() < 9 ? '0' : '') + localDates.getDate() 
+          + allData.dot[marketX] + (localDates.getMonth() < 9 ? '0' : '') 
           + (localDates.getMonth()+1) 
           + allData.dot[marketX] + localDates.getFullYear()) : "" ;
         
