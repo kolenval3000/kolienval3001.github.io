@@ -506,22 +506,22 @@
             break;
           case 'DE' : machinePromoSt = ``;
             break;
-          case 'FR' : machinePromoSt = `Promotion disponible du ${fdateStr} au ${sdateStr} à 23h59.<br>Consultez les conditions générales de l'offre <a alias="termsandconditions" conversion="false" data-linkto="other" href="httpgetwrap|https://www.lorespresso.com/fr_fr/conditions-generales-de-la-promotion" style="color:#666666;text-decoration:underline;" target="_blank" title="">ici</a>.${combined}`;
+          case 'FR' : machinePromoSt = `*Promotion disponible du ${fdateStr} au ${sdateStr} à 23h59.<br>Consultez les conditions générales de l'offre <a alias="termsandconditions" conversion="false" data-linkto="other" href="httpgetwrap|https://www.lorespresso.com/fr_fr/conditions-generales-de-la-promotion" style="color:#666666;text-decoration:underline;" target="_blank" title="">ici</a>.${combined}`;
             break;
-          case 'ES' : machinePromoSt = `Promoción disponible desde el ${fdateStr} hasta las 23:59 del ${sdateStr}.<br>Consulta los términos y condiciones de la oferta <a alias="termsandconditions" conversion="false" data-linkto="other" href="httpgetwrap|https://www.lorespresso.com/es_es/condiciones-de-promocion" style="color:#666666;text-decoration:underline;" target="_blank" title="">aquí</a>.`;
+          case 'ES' : machinePromoSt = `*Promoción disponible desde el ${fdateStr} hasta las 23:59 del ${sdateStr}.<br>Consulta los términos y condiciones de la oferta <a alias="termsandconditions" conversion="false" data-linkto="other" href="httpgetwrap|https://www.lorespresso.com/es_es/condiciones-de-promocion" style="color:#666666;text-decoration:underline;" target="_blank" title="">aquí</a>.`;
             break;
-          case 'IT' : machinePromoSt = `Promozione valida dalle 00:01 del ${fdateStr} alle 23:59 del ${sdateStr} o fino a esaurimento scorte, se precedente a tale data. Promozione applicabile sul sito lorespresso.it per gli acquisti effettuati sul territorio italiano.${combined}`;
+          case 'IT' : machinePromoSt = `*Promozione valida dalle 00:01 del ${fdateStr} alle 23:59 del ${sdateStr} o fino a esaurimento scorte, se precedente a tale data. Promozione applicabile sul sito lorespresso.it per gli acquisti effettuati sul territorio italiano.${combined}`;
             break;
           case 'NL' : machinePromoSt = ``;
             break;
-          case 'BE_FR' : machinePromoSt = `Promotion disponible du ${fdateStr} au ${sdateStr} à<span>&nbsp;</span>23h59.<br>Consultez les conditions générales de l'offre <a alias="termsandconditions" conversion="false" data-linkto="other" href="httpgetwrap|https://www.lorespresso.com/fr_be/conditions-de-promotion" style="color:#666666;text-decoration:underline;" target="_blank" title="">ici</a>.`;
+          case 'BE_FR' : machinePromoSt = `*Promotion disponible du ${fdateStr} au ${sdateStr} à<span>&nbsp;</span>23h59.<br>Consultez les conditions générales de l'offre <a alias="termsandconditions" conversion="false" data-linkto="other" href="httpgetwrap|https://www.lorespresso.com/fr_be/conditions-de-promotion" style="color:#666666;text-decoration:underline;" target="_blank" title="">ici</a>.`;
             break;
-          case 'BE_NL' : machinePromoSt = `Aanbieding geldig van ${fdateStr} tot ${sdateStr}, 23:59 uur.<br>Bekijk hier de <a alias="termsandconditions" conversion="false" data-linkto="other" href="httpgetwrap|https://www.lorespresso.com/nl_be/algemene-gebruiksvoorwaarden" style="color:#666666;text-decoration:underline;" target="_blank" title="">aanbiedingsvoorwaarden</a>.`;
+          case 'BE_NL' : machinePromoSt = `*Aanbieding geldig van ${fdateStr} tot ${sdateStr}, 23:59 uur.<br>Bekijk hier de <a alias="termsandconditions" conversion="false" data-linkto="other" href="httpgetwrap|https://www.lorespresso.com/nl_be/algemene-gebruiksvoorwaarden" style="color:#666666;text-decoration:underline;" target="_blank" title="">aanbiedingsvoorwaarden</a>.`;
             break;
-          case 'AT' : machinePromoSt = `Angebot erhältlich vom ${fdateStr} bis zum ${sdateStr} um 23:59 Uhr.<br>Hier erfährst du mehr zu den <a alias="termsandconditions" conversion="false" data-linkto="other" href="httpgetwrap|https://www.lorespresso.com/de_at/angebotskonditionen" style="color:#666666;text-decoration:underline;" target="_blank" title="">Angebotsbedingungen</a>.`;
+          case 'AT' : machinePromoSt = `*Angebot erhältlich vom ${fdateStr} bis zum ${sdateStr} um 23:59 Uhr.<br>Hier erfährst du mehr zu den <a alias="termsandconditions" conversion="false" data-linkto="other" href="httpgetwrap|https://www.lorespresso.com/de_at/angebotskonditionen" style="color:#666666;text-decoration:underline;" target="_blank" title="">Angebotsbedingungen</a>.`;
             break;
         }
-        let result3 = (firstPromo.checked? ((marketX === "FR" || marketX === "ES" || marketX === "AT" || marketX === "BE_FR" || marketX === "BE_NL")? "<br>**" : "") : "") + (secondPromo.checked? ((marketX === "FR" || marketX === "ES" || marketX === "AT" || marketX === "BE_FR" || marketX === "BE_NL")? "*" : "") : "") + machinePromoSt;
+        let result3 = (firstPromo.checked? ((marketX === "FR" || marketX === "ES" || marketX === "AT" || marketX === "BE_FR" || marketX === "BE_NL" || marketX === "IT")? "<br>*" : "") : "") + (secondPromo.checked? ((marketX === "FR" || marketX === "ES" || marketX === "AT" || marketX === "BE_FR" || marketX === "BE_NL" || marketX === "IT")? "*" : "") : "") + machinePromoSt;
         document.getElementById('threeStar').innerHTML = result3;
         result += result3;
         }
@@ -646,11 +646,22 @@
             articles.rg=" le ";
           }
           if (machinesInput.checked && !rgInput.checked && !bundlesInput.checked && !beansInput.checked && !capsulesInput.checked ){
-            articles.machines=" l'achat ";
+            articles.machines=" l'achat "; 
           }
           if (accessoriesInput.checked && !machinesInput.checked && !rgInput.checked && !bundlesInput.checked && !beansInput.checked && !capsulesInput.checked ){
             articles.accesories=" les ";
           }
+
+          //article for IT
+          let articlesIT = {"machines" : ""};
+          let articlesITNot = {"machines" : ""};
+          if (capsulesInput.checked && bundlesInput.checked && accessoriesInput.checked){
+            articlesIT.machines=""; console.log(articlesIT.machines);
+          }
+          if (!machinesInput.checked && capsulesInput.checked && bundlesInput.checked && accessoriesInput.checked){
+            articlesITNot.machines=" sulle "; console.log(articlesITNot.machines);
+          }
+
 
           if (!capsulesInput.checked){
             articlesNot.capsules=" les ";
@@ -667,6 +678,9 @@
           if (!machinesInput.checked && rgInput.checked && bundlesInput.checked && beansInput.checked && capsulesInput.checked ){
             articlesNot.machines=" l'achat ";
           }
+          
+
+
           //for BE_FR start
           if (!machinesInput.checked && accessoriesInput.checked && bundlesInput.checked && capsulesInput.checked ){
             articlesNot.machines=" l'achat ";
@@ -690,7 +704,7 @@
             break;
           case 'ES' : staticPhrase = `*Promoción disponible desde el ${fdateStr} hasta las 23:59 del ${sdateStr}.<span style="display: ${displayMov};"><br>Esta oferta solo es válida para compras mínimas de ${MOV}€ ${excluding}${including}</span><span style="display: ${blockstyle2};"><br>Válida para ${capsules.applicable}${capsules.applicable === '' ? znak.empty : znak[zapyatayaApp--]}${bundles.applicable}${bundles.applicable === '' ? znak.empty : znak[zapyatayaApp--]}${machines.applicable}${machines.applicable === '' ? znak.empty : znak[zapyatayaApp--]}${accessories.applicable}.</span><span style="display: ${blockstyle};"><br>Esta oferta no es válida para la compra de ${capsules.notApplicable}${capsules.notApplicable === '' ? znak.empty : znak[zapyatayaNotApp--]}${bundles.notApplicable}${bundles.notApplicable === '' ? znak.empty : znak[zapyatayaNotApp--]}${machines.notApplicable}${machines.notApplicable === '' ? znak.empty : znak[zapyatayaNotApp--]}${accessories.notApplicable}.</span><span style="display: ${displayComb};">${combined}</span>`;
             break;
-          case 'IT' : staticPhrase = `*Promozione disponibile dal ${fdateStr} alle 23:59 del ${sdateStr}.<span style="display: ${displayMov};"><br>La presente promozione è valida con un ordine minimo di €${MOV} ${excluding}${including}</span><span style="display: ${blockstyle2};"><br>Valida su ${capsules.applicable}${capsules.applicable === '' ? znak.empty : znak[zapyatayaApp--]}${bundles.applicable}${bundles.applicable === '' ? znak.empty : znak[zapyatayaApp--]}${articles.machines}${machines.applicable}${machines.applicable === '' ? znak.empty : znak[zapyatayaApp--]}${accessories.applicable}.</span><span style="display: ${blockstyle};"><br>Non si applica agli alle ${capsules.notApplicable}${capsules.notApplicable === '' ? znak.empty : znak[zapyatayaNotApp--]}${bundles.notApplicable}${bundles.notApplicable === '' ? znak.empty : znak[zapyatayaNotApp--]}${articlesNot.machines}${machines.notApplicable}${machines.notApplicable === '' ? znak.empty : znak[zapyatayaNotApp--]}${accessories.notApplicable}.</span><span style="display: ${displayComb};">${combined}</span>`;
+          case 'IT' : staticPhrase = `*Promozione disponibile dal ${fdateStr} alle 23:59 del ${sdateStr}.<span style="display: ${displayMov};"><br>La presente promozione è valida con un ordine minimo di €${MOV} ${excluding}${including}</span><span style="display: ${blockstyle2};"><br>Valida su ${capsules.applicable}${capsules.applicable === '' ? znak.empty : znak[zapyatayaApp--]}${bundles.applicable}${bundles.applicable === '' ? znak.empty : znak[zapyatayaApp--]}${articlesIT.machines}${machines.applicable}${machines.applicable === '' ? znak.empty : znak[zapyatayaApp--]}${accessories.applicable}.</span><span style="display: ${blockstyle};"><br>Non si applica ${capsules.notApplicable}${capsules.notApplicable === '' ? znak.empty : znak[zapyatayaNotApp--]}${bundles.notApplicable}${bundles.notApplicable === '' ? znak.empty : znak[zapyatayaNotApp--]}${articlesITNot.machines}${machines.notApplicable}${machines.notApplicable === '' ? znak.empty : znak[zapyatayaNotApp--]}${accessories.notApplicable}.</span><span style="display: ${displayComb};">${combined}</span>`;
             break;
           case 'NL' : staticPhrase = `*Aanbieding geldig van ${fdateStr} tot ${sdateStr}, 23:59 uur.<span style="display: ${displayMov};"><br>Deze aanbieding is geldig bij een minimum bestelbedrag van €${MOV} ${excluding}${including}</span><span style="display: ${blockstyle2};"><br>Van toepassing ${capsules.applicable}${capsules.applicable === '' ? znak.empty : znak[zapyatayaApp--]}${bundles.applicable}${bundles.applicable === '' ? znak.empty : znak[zapyatayaApp--]}${beans.applicable}${beans.applicable === '' ? znak.empty : znak[zapyatayaApp--]}${accessories.applicable}.</span><span style="display: ${blockstyle};"><br>Niet geldig voor ${capsules.notApplicable}${capsules.notApplicable === '' ? znak.empty : znak[zapyatayaNotApp--]}${bundles.notApplicable}${bundles.notApplicable === '' ? znak.empty : znak[zapyatayaNotApp--]}${beans.notApplicable}${beans.notApplicable === '' ? znak.empty : znak[zapyatayaNotApp--]}${accessories.notApplicable}.</span><span style="display: ${displayComb};">${combined}</span>`;
             break;
