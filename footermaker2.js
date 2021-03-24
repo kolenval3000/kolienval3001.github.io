@@ -391,6 +391,12 @@
         else{
           displayMov = "none";
         }
+        if (notCombined.checked) {
+          displayMov = "inline";
+        }
+        else{
+          displayMov = "none";
+        }
 
         if (firstPromo.checked) {
         promo1.style.display = "block";
