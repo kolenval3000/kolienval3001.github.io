@@ -113,7 +113,7 @@
     "DE" : "<br>Dieses Angebot kann nicht mit anderen Angeboten kombiniert werden.",
     "FR" : "<br>Cette offre n'est pas combinable avec d'autres promotions.",
     "ES" : "<br>No acumulable con otras promociones.",
-    "IT" : "<br>Consulta I termini e condizioni della promozione qui.",
+    "IT" : "<br>Non cumulabile con altre promozioni.",
     "NL" : " ",
     "BE_FR" : "<br>Cette offre n'est pas combinable avec d'autres promotions.",
     "BE_NL" : "<br>Deze promo is niet cumuleerbaar met andere promoties.",
