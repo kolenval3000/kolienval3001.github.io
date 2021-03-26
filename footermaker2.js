@@ -506,7 +506,7 @@
             break;
           case 'DE' : machinePromoSt = ``;
             break;
-          case 'FR' : machinePromoSt = `*Promotion disponible du ${fdateStr} au ${sdateStr} à 23h59.<br>Consultez les conditions générales de l'offre <a alias="termsandconditions" conversion="false" data-linkto="other" href="httpgetwrap|https://www.lorespresso.com/fr_fr/conditions-generales-de-la-promotion" style="color:#666666;text-decoration:underline;" target="_blank" title="">ici</a>.${combined}`;
+          case 'FR' : machinePromoSt = `*Promotion disponible du ${fdateStr} au ${sdateStr} à 23h59.<br>Consultez les conditions générales de l'offre <a alias="termsandconditions" conversion="false" data-linkto="other" href="httpgetwrap|https://www.lorespresso.com/fr_fr/conditions-promo" style="color:#666666;text-decoration:underline;" target="_blank" title="">ici</a>.${combined}`;
             break;
           case 'ES' : machinePromoSt = `*Promoción disponible desde el ${fdateStr} hasta las 23:59 del ${sdateStr}.<br>Consulta los términos y condiciones de la oferta <a alias="termsandconditions" conversion="false" data-linkto="other" href="httpgetwrap|https://www.lorespresso.com/es_es/condiciones-de-promocion" style="color:#666666;text-decoration:underline;" target="_blank" title="">aquí</a>.`;
             break;
