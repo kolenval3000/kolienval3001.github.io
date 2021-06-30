@@ -108,16 +108,16 @@
     "BE_NL" : "-",
     "AT" : ".",},
     'combined':
-    {"UK" : "<br>This promotion can not be combined with any other promotions.",
-    "IE" : "<br>This promotion can not be combined with any other promotions.",
+    {"UK" : "<br>This promotion can not be combined with any other<span>&nbsp;</span>promotions.",
+    "IE" : "<br>This promotion can not be combined with any other<span>&nbsp;</span>promotions.",
     "DE" : "<br>Dieses Angebot kann nicht mit anderen Angeboten kombiniert werden.",
     "FR" : "<br>Cette offre n'est pas combinable avec d'autres promotions.",
     "ES" : "<br>No acumulable con otras promociones.",
     "IT" : "<br>Non cumulabile con altre promozioni.",
     "NL" : " ",
     "BE_FR" : "<br>Cette offre n'est pas combinable avec d'autres promotions.",
-    "BE_NL" : "<br>Deze promo is niet cumuleerbaar met andere promoties.",
-    "AT" : "<br>Dieses Angebot ist nicht mit anderen Angeboten kombinierbar.",},
+    "BE_NL" : "<br>Deze promo is niet cumuleerbaar met andere<span>&nbsp;</span>promoties.",
+    "AT" : "<br>Dieses Angebot ist nicht mit anderen Angeboten<span>&nbsp;</span>kombinierbar.",},
     'excluding':
     {"UK" : "(excluding delivery costs).",
     "IE" : "(excluding delivery costs).",
@@ -183,7 +183,7 @@
     "NL" : "accessoires (glazen, capsulecollectie, geschenkdozen, etc.)",
     "BE_FR" : "accessoires (verres, collection de capsules, boîte cadeau etc)",
     "BE_NL" : "accessoires (glazen, capsulecollectie, geschenkdozen, etc.)",
-    "AT" : "Accessoires (Gläser, Kapsel-Kollektionen, Geschenkboxen usw.)",},
+    "AT" : "Accessoires (Gläser, Kapsel-Kollektionen, Geschenkboxen<span>&nbsp;</span>usw.)",},
     'rg':
     {"UK" : "R&G",
     "IE" : " ",
@@ -199,13 +199,13 @@
     {"UK" : " ",
     "IE" : " ",
     "DE" : " ",
-    "FR" : "d'une machine à café L'OR BARISTA<sup><span>&#174;</span></sup> et le mousseur à lait",
-    "ES" : "la cafetera L'OR BARISTA y el espumador de leche",
-    "IT" : "macchina da caffè L'OR BARISTA",
+    "FR" : "d'une machine à café L'OR<span>&nbsp;</span>BARISTA<sup><span>&#174;</span></sup> et le mousseur à lait",
+    "ES" : "la cafetera L'OR<span>&nbsp;</span>BARISTA y el espumador de leche",
+    "IT" : "macchina da caffè L'OR<span>&nbsp;</span>BARISTA",
     "NL" : " ",
-    "BE_FR" : "d'une machine à café L'OR BARISTA et le mousseur à lait",
-    "BE_NL" : "L'OR BARISTA koffiemachines en de melkopschuimer",
-    "AT" : "die L'OR BARISTA Maschine und den Milchschäumer",},
+    "BE_FR" : "d'une machine à café L'OR<span>&nbsp;</span>BARISTA et le mousseur à lait",
+    "BE_NL" : "L'OR<span>&nbsp;</span>BARISTA koffiemachines en de melkopschuimer",
+    "AT" : "die L'OR<span>&nbsp;</span>BARISTA Maschine und den<span>&nbsp;</span>Milchschäumer",},
     'and':
     {"UK" : " and ",
     "IE" : " and ",
@@ -516,9 +516,9 @@
             break;
           case 'BE_FR' : machinePromoSt = `*Promotion disponible du ${fdateStr} au ${sdateStr} à<span>&nbsp;</span>23h59.<br>Consultez les conditions générales de l'offre <a alias="termsandconditions" conversion="false" data-linkto="other" href="httpgetwrap|https://www.lorespresso.com/fr_be/conditions-de-promotion" style="color:#666666;text-decoration:underline;" target="_blank" title="">ici</a>.${combined}`;
             break;
-          case 'BE_NL' : machinePromoSt = `*Aanbieding geldig van ${fdateStr} tot ${sdateStr}, 23:59 uur.<br>Bekijk hier de <a alias="termsandconditions" conversion="false" data-linkto="other" href="httpgetwrap|https://www.lorespresso.com/nl_be/algemene-gebruiksvoorwaarden" style="color:#666666;text-decoration:underline;" target="_blank" title="">aanbiedingsvoorwaarden</a>.${combined}`;
+          case 'BE_NL' : machinePromoSt = `*Aanbieding geldig van ${fdateStr} tot ${sdateStr}, 23:59<span>&nbsp;</span>uur.<br>Bekijk hier de <a alias="termsandconditions" conversion="false" data-linkto="other" href="httpgetwrap|https://www.lorespresso.com/nl_be/algemene-gebruiksvoorwaarden" style="color:#666666;text-decoration:underline;" target="_blank" title="">aanbiedingsvoorwaarden</a>.${combined}`;
             break;
-          case 'AT' : machinePromoSt = `*Angebot erhältlich vom ${fdateStr} bis zum ${sdateStr} um 23:59 Uhr.<br>Hier erfährst du mehr zu den <a alias="termsandconditions" conversion="false" data-linkto="other" href="httpgetwrap|https://www.lorespresso.com/de_at/angebotskonditionen" style="color:#666666;text-decoration:underline;" target="_blank" title="">Angebotsbedingungen</a>.${combined}`;
+          case 'AT' : machinePromoSt = `*Angebot erhältlich vom ${fdateStr} bis zum ${sdateStr} um 23:59<span>&nbsp;</span>Uhr.<br>Hier erfährst du mehr zu den <a alias="termsandconditions" conversion="false" data-linkto="other" href="httpgetwrap|https://www.lorespresso.com/de_at/angebotskonditionen" style="color:#666666;text-decoration:underline;" target="_blank" title="">Angebotsbedingungen</a>.${combined}`;
             break;
         }
         let result3 = (firstPromo.checked? ((marketX === "FR" || marketX === "ES" || marketX === "AT" || marketX === "BE_FR" || marketX === "BE_NL" || marketX === "IT")? "<br>*" : "") : "") + (secondPromo.checked? ((marketX === "FR" || marketX === "ES" || marketX === "AT" || marketX === "BE_FR" || marketX === "BE_NL" || marketX === "IT")? "*" : "") : "") + machinePromoSt;
@@ -541,17 +541,17 @@
             break;
           case 'FR' : staticPhraseTC = `Les conditions d’utilisation standard du site s’appliquent.`;
             break;
-          case 'ES' : staticPhraseTC = `Se aplican los términos y condiciones generales del sitio web.`;
+          case 'ES' : staticPhraseTC = `Se aplican los términos y condiciones generales del<span>&nbsp;</span>sitio<span>&nbsp;</span>web.`;
             break;
-          case 'IT' : staticPhraseTC = `Si applicano termini e condizioni standard del sito web.`;
+          case 'IT' : staticPhraseTC = `Si applicano termini e condizioni standard del<span>&nbsp;</span>sito<span>&nbsp;</span>web.`;
             break;
-          case 'NL' : staticPhraseTC = `De standaard algemene voorwaarden van de website zijn van toepassing.`;
+          case 'NL' : staticPhraseTC = `De standaard algemene voorwaarden van de website zijn van<span>&nbsp;</span>toepassing.`;
             break;
           case 'BE_FR' : staticPhraseTC = `Les conditions d’utilisation standard du site s’appliquent.`;
             break;
-          case 'BE_NL' : staticPhraseTC = `De standaard algemene voorwaarden van de website zijn van toepassing.`;
+          case 'BE_NL' : staticPhraseTC = `De standaard algemene voorwaarden van de website zijn van<span>&nbsp;</span>toepassing.`;
             break;
-          case 'AT' : staticPhraseTC = `Es gelten die Allgemeinen Geschäftsbedingungen der Webseite.`;
+          case 'AT' : staticPhraseTC = `Es gelten die Allgemeinen Geschäftsbedingungen der<span>&nbsp;</span>Webseite.`;
             break;
         }
         
@@ -700,17 +700,17 @@
             break;
           case 'DE' : staticPhrase = `*Angebot erhältlich vom ${fdateStr} bis zum ${sdateStr} um 23:59 Uhr.<span style="display: ${displayMov};"><br>Dieses Angebot ist nur gültig bei einem Mindestbestellwert von ${MOV}<span>&nbsp;</span>€ ${excluding}${including}</span><span style="display: ${blockstyle2};"><br>Gültig für ${capsules.applicable}${capsules.applicable === '' ? znak.empty : znak[zapyatayaApp--]}${bundles.applicable}${bundles.applicable === '' ? znak.empty : znak[zapyatayaApp--]}${accessories.applicable}.</span><span style="display: ${blockstyle};"><br>Gilt nicht für ${capsules.notApplicable}${capsules.notApplicable === '' ? znak.empty : znak[zapyatayaNotApp--]}${bundles.notApplicable}${bundles.notApplicable === '' ? znak.empty : znak[zapyatayaNotApp--]}${accessories.notApplicable}.</span><span style="display: ${displayComb};">${combined}</span>`;
             break;
-          case 'FR' : staticPhrase = `*Promotion disponible du ${fdateStr} au ${sdateStr} à 23h59.<span style="display: ${displayMov};"><br>Cette promotion est valable pour toute commande d'un montant minimum de ${MOV} € ${excluding}${including}</span><span style="display: ${blockstyle2};"><br>Applicable sur ${articles.capsules}${capsules.applicable}${capsules.applicable === '' ? znak.empty : znak[zapyatayaApp--]}${articles.bundles}${bundles.applicable}${bundles.applicable === '' ? znak.empty : znak[zapyatayaApp--]}${articles.beans}${beans.applicable}${beans.applicable === '' ? znak.empty : znak[zapyatayaApp--]}${articles.rg}${rg.applicable}${rg.applicable === '' ? znak.empty : znak[zapyatayaApp--]}${articles.machines}${machines.applicable}${machines.applicable === '' ? znak.empty : znak[zapyatayaApp--]}${articles.accesories}${accessories.applicable}.</span><span style="display: ${blockstyle};"><br>Elle n'est pas valable sur ${articlesNot.capsules}${capsules.notApplicable}${capsules.notApplicable === '' ? znak.empty : znak[zapyatayaNotApp--]}${articlesNot.bundles}${bundles.notApplicable}${bundles.notApplicable === '' ? znak.empty : znak[zapyatayaNotApp--]}${articlesNot.beans}${beans.notApplicable}${beans.notApplicable === '' ? znak.empty : znak[zapyatayaNotApp--]}${articlesNot.rg}${rg.notApplicable}${rg.notApplicable === '' ? znak.empty : znak[zapyatayaNotApp--]}${articlesNot.machines}${machines.notApplicable}${machines.notApplicable === '' ? znak.empty : znak[zapyatayaNotApp--]}${articlesNot.accesories}${accessories.notApplicable}.</span><span style="display: ${displayComb};">${combined}</span>`;
+          case 'FR' : staticPhrase = `*Promotion disponible du ${fdateStr} au ${sdateStr} à<span>&nbsp;</span>23h59.<span style="display: ${displayMov};"><br>Cette promotion est valable pour toute commande d'un montant minimum de ${MOV} € ${excluding}${including}</span><span style="display: ${blockstyle2};"><br>Applicable sur ${articles.capsules}${capsules.applicable}${capsules.applicable === '' ? znak.empty : znak[zapyatayaApp--]}${articles.bundles}${bundles.applicable}${bundles.applicable === '' ? znak.empty : znak[zapyatayaApp--]}${articles.beans}${beans.applicable}${beans.applicable === '' ? znak.empty : znak[zapyatayaApp--]}${articles.rg}${rg.applicable}${rg.applicable === '' ? znak.empty : znak[zapyatayaApp--]}${articles.machines}${machines.applicable}${machines.applicable === '' ? znak.empty : znak[zapyatayaApp--]}${articles.accesories}${accessories.applicable}.</span><span style="display: ${blockstyle};"><br>Elle n'est pas valable sur ${articlesNot.capsules}${capsules.notApplicable}${capsules.notApplicable === '' ? znak.empty : znak[zapyatayaNotApp--]}${articlesNot.bundles}${bundles.notApplicable}${bundles.notApplicable === '' ? znak.empty : znak[zapyatayaNotApp--]}${articlesNot.beans}${beans.notApplicable}${beans.notApplicable === '' ? znak.empty : znak[zapyatayaNotApp--]}${articlesNot.rg}${rg.notApplicable}${rg.notApplicable === '' ? znak.empty : znak[zapyatayaNotApp--]}${articlesNot.machines}${machines.notApplicable}${machines.notApplicable === '' ? znak.empty : znak[zapyatayaNotApp--]}${articlesNot.accesories}${accessories.notApplicable}.</span><span style="display: ${displayComb};">${combined}</span>`;
             break;
-          case 'ES' : staticPhrase = `*Promoción disponible desde el ${fdateStr} hasta las 23:59 del ${sdateStr}.<span style="display: ${displayMov};"><br>Esta oferta solo es válida para compras mínimas de ${MOV}€ ${excluding}${including}</span><span style="display: ${blockstyle2};"><br>Válida para ${capsules.applicable}${capsules.applicable === '' ? znak.empty : znak[zapyatayaApp--]}${bundles.applicable}${bundles.applicable === '' ? znak.empty : znak[zapyatayaApp--]}${machines.applicable}${machines.applicable === '' ? znak.empty : znak[zapyatayaApp--]}${accessories.applicable}.</span><span style="display: ${blockstyle};"><br>Esta oferta no es válida para la compra de ${capsules.notApplicable}${capsules.notApplicable === '' ? znak.empty : znak[zapyatayaNotApp--]}${bundles.notApplicable}${bundles.notApplicable === '' ? znak.empty : znak[zapyatayaNotApp--]}${machines.notApplicable}${machines.notApplicable === '' ? znak.empty : znak[zapyatayaNotApp--]}${accessories.notApplicable}.</span><span style="display: ${displayComb};">${combined}</span>`;
+          case 'ES' : staticPhrase = `*Promoción disponible desde el ${fdateStr} hasta las 23:59 del ${sdateStr}.<span style="display: ${displayMov};"><br>Esta oferta solo es válida para compras mínimas de<span>&nbsp;</span>${MOV}€ ${excluding}${including}</span><span style="display: ${blockstyle2};"><br>Válida para ${capsules.applicable}${capsules.applicable === '' ? znak.empty : znak[zapyatayaApp--]}${bundles.applicable}${bundles.applicable === '' ? znak.empty : znak[zapyatayaApp--]}${machines.applicable}${machines.applicable === '' ? znak.empty : znak[zapyatayaApp--]}${accessories.applicable}.</span><span style="display: ${blockstyle};"><br>Esta oferta no es válida para la compra de ${capsules.notApplicable}${capsules.notApplicable === '' ? znak.empty : znak[zapyatayaNotApp--]}${bundles.notApplicable}${bundles.notApplicable === '' ? znak.empty : znak[zapyatayaNotApp--]}${machines.notApplicable}${machines.notApplicable === '' ? znak.empty : znak[zapyatayaNotApp--]}${accessories.notApplicable}.</span><span style="display: ${displayComb};">${combined}</span>`;
             break;
           case 'IT' : staticPhrase = `*Promozione disponibile dal ${fdateStr} alle 23:59 del ${sdateStr}.<span style="display: ${displayMov};"><br>La presente promozione è valida con un ordine minimo di €${MOV} ${excluding}${including}</span><span style="display: ${blockstyle2};"><br>Valida su ${capsules.applicable}${capsules.applicable === '' ? znak.empty : znak[zapyatayaApp--]}${bundles.applicable}${bundles.applicable === '' ? znak.empty : znak[zapyatayaApp--]}${articlesIT.machines}${machines.applicable}${machines.applicable === '' ? znak.empty : znak[zapyatayaApp--]}${accessories.applicable}.</span><span style="display: ${blockstyle};"><br>Non si applica ${capsules.notApplicable}${capsules.notApplicable === '' ? znak.empty : znak[zapyatayaNotApp--]}${bundles.notApplicable}${bundles.notApplicable === '' ? znak.empty : znak[zapyatayaNotApp--]}${articlesITNot.machines}${machines.notApplicable}${machines.notApplicable === '' ? znak.empty : znak[zapyatayaNotApp--]}${accessories.notApplicable}.</span><span style="display: ${displayComb};">${combined}</span>`;
             break;
-          case 'NL' : staticPhrase = `*Aanbieding geldig van ${fdateStr} tot ${sdateStr}, 23:59 uur.<span style="display: ${displayMov};"><br>Deze aanbieding is geldig bij een minimum bestelbedrag van €${MOV} ${excluding}${including}</span><span style="display: ${blockstyle2};"><br>Van toepassing ${capsules.applicable}${capsules.applicable === '' ? znak.empty : znak[zapyatayaApp--]}${bundles.applicable}${bundles.applicable === '' ? znak.empty : znak[zapyatayaApp--]}${beans.applicable}${beans.applicable === '' ? znak.empty : znak[zapyatayaApp--]}${accessories.applicable}.</span><span style="display: ${blockstyle};"><br>Niet geldig voor ${capsules.notApplicable}${capsules.notApplicable === '' ? znak.empty : znak[zapyatayaNotApp--]}${bundles.notApplicable}${bundles.notApplicable === '' ? znak.empty : znak[zapyatayaNotApp--]}${beans.notApplicable}${beans.notApplicable === '' ? znak.empty : znak[zapyatayaNotApp--]}${accessories.notApplicable}.</span><span style="display: ${displayComb};">${combined}</span>`;
+          case 'NL' : staticPhrase = `*Aanbieding geldig van ${fdateStr} tot ${sdateStr}, 23:59<span>&nbsp;</span>uur.<span style="display: ${displayMov};"><br>Deze aanbieding is geldig bij een minimum bestelbedrag van €${MOV} ${excluding}${including}</span><span style="display: ${blockstyle2};"><br>Van toepassing ${capsules.applicable}${capsules.applicable === '' ? znak.empty : znak[zapyatayaApp--]}${bundles.applicable}${bundles.applicable === '' ? znak.empty : znak[zapyatayaApp--]}${beans.applicable}${beans.applicable === '' ? znak.empty : znak[zapyatayaApp--]}${accessories.applicable}.</span><span style="display: ${blockstyle};"><br>Niet geldig voor ${capsules.notApplicable}${capsules.notApplicable === '' ? znak.empty : znak[zapyatayaNotApp--]}${bundles.notApplicable}${bundles.notApplicable === '' ? znak.empty : znak[zapyatayaNotApp--]}${beans.notApplicable}${beans.notApplicable === '' ? znak.empty : znak[zapyatayaNotApp--]}${accessories.notApplicable}.</span><span style="display: ${displayComb};">${combined}</span>`;
             break;
           case 'BE_FR' : staticPhrase = `*Promotion disponible du ${fdateStr} au ${sdateStr} à<span>&nbsp;</span>23h59.<span style="display: ${displayMov};"><br>Cette promotion est valable pour toute commande d'un montant minimum de ${MOV} € ${excluding}${including}</span><span style="display: ${blockstyle2};"><br>Applicable sur${articles.capsules}${capsules.applicable}${capsules.applicable === '' ? znak.empty : znak[zapyatayaApp--]}${articles.bundles}${bundles.applicable}${bundles.applicable === '' ? znak.empty : znak[zapyatayaApp--]}${articles.machines}${machines.applicable}${machines.applicable === '' ? znak.empty : znak[zapyatayaApp--]}${articles.accesories}${accessories.applicable}.</span><span style="display: ${blockstyle};"><br>Elle n'est pas valable sur${articlesNot.capsules}${capsules.notApplicable}${capsules.notApplicable === '' ? znak.empty : znak[zapyatayaNotApp--]}${articlesNot.bundles}${bundles.notApplicable}${bundles.notApplicable === '' ? znak.empty : znak[zapyatayaNotApp--]}${articlesNot.machines}${machines.notApplicable}${machines.notApplicable === '' ? znak.empty : znak[zapyatayaNotApp--]}${articlesNot.accesories}${accessories.notApplicable}.</span><span style="display: ${displayComb};">${combined}</span>`;
             break;
-          case 'BE_NL' : staticPhrase = `*Aanbieding geldig van ${fdateStr} tot ${sdateStr}, 23:59 uur.<span style="display: ${displayMov};"><br>Deze aanbieding is geldig bij een minimum besteding vanaf €${MOV} ${excluding}${including}</span><span style="display: ${blockstyle2};"><br>Van toepassing op ${capsules.applicable}${capsules.applicable === '' ? znak.empty : znak[zapyatayaApp--]}${bundles.applicable}${bundles.applicable === '' ? znak.empty : znak[zapyatayaApp--]}${machines.applicable}${machines.applicable === '' ? znak.empty : znak[zapyatayaApp--]}${accessories.applicable}.</span><span style="display: ${blockstyle};"><br>Niet geldig voor ${capsules.notApplicable}${capsules.notApplicable === '' ? znak.empty : znak[zapyatayaNotApp--]}${bundles.notApplicable}${bundles.notApplicable === '' ? znak.empty : znak[zapyatayaNotApp--]}${machines.notApplicable}${machines.notApplicable === '' ? znak.empty : znak[zapyatayaNotApp--]}${accessories.notApplicable}.</span><span style="display: ${displayComb};">${combined}</span>`;
+          case 'BE_NL' : staticPhrase = `*Aanbieding geldig van ${fdateStr} tot ${sdateStr}, 23:59<span>&nbsp;</span>uur.<span style="display: ${displayMov};"><br>Deze aanbieding is geldig bij een minimum besteding vanaf<span>&nbsp;</span>€${MOV} ${excluding}${including}</span><span style="display: ${blockstyle2};"><br>Van toepassing op ${capsules.applicable}${capsules.applicable === '' ? znak.empty : znak[zapyatayaApp--]}${bundles.applicable}${bundles.applicable === '' ? znak.empty : znak[zapyatayaApp--]}${machines.applicable}${machines.applicable === '' ? znak.empty : znak[zapyatayaApp--]}${accessories.applicable}.</span><span style="display: ${blockstyle};"><br>Niet geldig voor ${capsules.notApplicable}${capsules.notApplicable === '' ? znak.empty : znak[zapyatayaNotApp--]}${bundles.notApplicable}${bundles.notApplicable === '' ? znak.empty : znak[zapyatayaNotApp--]}${machines.notApplicable}${machines.notApplicable === '' ? znak.empty : znak[zapyatayaNotApp--]}${accessories.notApplicable}.</span><span style="display: ${displayComb};">${combined}</span>`;
             break;
           case 'AT' : staticPhrase = `*Angebot erhältlich vom ${fdateStr} bis zum ${sdateStr} um 23:59 Uhr.<span style="display: ${displayMov};"><br>Dieses Angebot ist nur gültig bei einem Mindestbestellwert von ${MOV}<span>&nbsp;</span>€ ${excluding}${including}</span><span style="display: ${blockstyle2};"><br>Gültig für ${capsules.applicable}${capsules.applicable === '' ? znak.empty : znak[zapyatayaApp--]}${bundles.applicable}${bundles.applicable === '' ? znak.empty : znak[zapyatayaApp--]}${beans.applicable}${beans.applicable === '' ? znak.empty : znak[zapyatayaApp--]}${machines.applicable}${machines.applicable === '' ? znak.empty : znak[zapyatayaApp--]}${accessories.applicable}.</span><span style="display: ${blockstyle};"><br>Das Angebot gilt nicht für ${capsules.notApplicable}${capsules.notApplicable === '' ? znak.empty : znak[zapyatayaNotApp--]}${bundles.notApplicable}${bundles.notApplicable === '' ? znak.empty : znak[zapyatayaNotApp--]}${beans.notApplicable}${beans.notApplicable === '' ? znak.empty : znak[zapyatayaNotApp--]}${machines.notApplicable}${machines.notApplicable === '' ? znak.empty : znak[zapyatayaNotApp--]}${accessories.notApplicable}.</span><span style="display: ${displayComb};">${combined}</span>`;
             break;
