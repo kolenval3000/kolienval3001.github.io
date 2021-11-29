@@ -539,7 +539,7 @@
             break;
           case 'DE' : staticPhraseTC = `Es gelten die Allgemeinen Geschäftsbedingungen der Webseite.`;
             break;
-          case 'FR' : staticPhraseTC = `Les conditions d’utilisation standard du site s’appliquent.`;
+          case 'FR' : staticPhraseTC = `Les conditions générales d'utilisation du site s’appliquent.`;
             break;
           case 'ES' : staticPhraseTC = `Se aplican los términos y condiciones generales del<span>&nbsp;</span>sitio<span>&nbsp;</span>web.`;
             break;
@@ -547,7 +547,7 @@
             break;
           case 'NL' : staticPhraseTC = `De standaard algemene voorwaarden van de website zijn van<span>&nbsp;</span>toepassing.`;
             break;
-          case 'BE_FR' : staticPhraseTC = `Les conditions d’utilisation standard du site s’appliquent.`;
+          case 'BE_FR' : staticPhraseTC = `Les conditions générales d'utilisation du site s’appliquent.`;
             break;
           case 'BE_NL' : staticPhraseTC = `De standaard algemene voorwaarden van de website zijn van<span>&nbsp;</span>toepassing.`;
             break;
