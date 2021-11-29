@@ -108,7 +108,7 @@
     "BE_NL" : "-",
     "AT" : ".",},
     'combined':
-    {"UK" : "<br>This promotion can not be combined with any other<span>&nbsp;</span>promotions.",
+    {"UK" : "1<br>This promotion can not be combined with any other<span>&nbsp;</span>promotions.",
     "IE" : "<br>This promotion can not be combined with any other<span>&nbsp;</span>promotions.",
     "DE" : "<br>Dieses Angebot kann nicht mit anderen Angeboten kombiniert werden.",
     "FR" : "<br>Cette offre n'est pas cumulable avec d'autres promotions.",
