@@ -106,7 +106,9 @@
     "NL" : "-",
     "BE_FR" : "/",
     "BE_NL" : "-",
-    "AT" : ".",},
+    "AT" : ".",
+    "CH_DE" : ".",
+    "CH_FR" : "/",},
     'combined':
     {"UK" : "<br>This promotion can not be combined with any other<span>&nbsp;</span>promotions.",
     "IE" : "<br>This promotion can not be combined with any other<span>&nbsp;</span>promotions.",
@@ -271,6 +273,27 @@
       beans = document.getElementById("beans");
       rg = document.getElementById('rg');
       machines = document.getElementById('machines');
+
+      if(marketX === "CH_DE" || marketX === "CH_FR"){
+        excl.style.display = "none";
+        incl.style.display = "none";
+        notAppl.style.display = "none";
+        combDiv.style.display = "none";
+        capsulesdiv.style.display = "none";
+        bundlesdiv.style.display = "none";
+        accessoriesdiv.style.display = "none";
+        chmarkets.style.display = "none";
+      }
+      else{
+        excl.style.display = "block";
+        incl.style.display = "block";
+        notAppl.style.display = "block";
+        combDiv.style.display = "block";
+        capsulesdiv.style.display = "block";
+        bundlesdiv.style.display = "block";
+        accessoriesdiv.style.display = "block";
+        chmarkets.style.display = "block";
+      }
       
 
       if(marketX === "NL"){
@@ -278,8 +301,7 @@
         combDiv2.style.display = "none";
       }
       else{
-        combDiv.style.display = "block";
-        combDiv2.style.display = "block";
+        
       }
     
       if(marketX === "FR" || marketX === "ES" || marketX === "BE_FR" || marketX === "BE_NL" || marketX === "AT" || marketX === "IT"){
@@ -553,6 +575,10 @@
             break;
           case 'AT' : staticPhraseTC = `Es gelten die Allgemeinen Geschäftsbedingungen der<span>&nbsp;</span>Webseite.`;
             break;
+          case 'CH_DE' : staticPhraseTC = `Es gelten die Allgemeinen Geschäftsbedingungen der<span>&nbsp;</span>Webseite.`;
+            break;
+          case 'CH_FR' : staticPhraseTC = `Les conditions d’utilisation standard du site<span>&nbsp;</span>s’appliquent.`;
+            break;
         }
         
         document.getElementById('terms').innerHTML = staticPhraseTC;
@@ -713,6 +739,10 @@
           case 'BE_NL' : staticPhrase = `*Aanbieding geldig van ${fdateStr} tot ${sdateStr}, 23:59<span>&nbsp;</span>uur.<span style="display: ${displayMov};"><br>Deze aanbieding is geldig bij een minimum besteding vanaf<span>&nbsp;</span>€${MOV} ${excluding}${including}</span><span style="display: ${blockstyle2};"><br>Van toepassing op ${capsules.applicable}${capsules.applicable === '' ? znak.empty : znak[zapyatayaApp--]}${bundles.applicable}${bundles.applicable === '' ? znak.empty : znak[zapyatayaApp--]}${machines.applicable}${machines.applicable === '' ? znak.empty : znak[zapyatayaApp--]}${accessories.applicable}.</span><span style="display: ${blockstyle};"><br>Niet geldig voor ${capsules.notApplicable}${capsules.notApplicable === '' ? znak.empty : znak[zapyatayaNotApp--]}${bundles.notApplicable}${bundles.notApplicable === '' ? znak.empty : znak[zapyatayaNotApp--]}${machines.notApplicable}${machines.notApplicable === '' ? znak.empty : znak[zapyatayaNotApp--]}${accessories.notApplicable}.</span><span style="display: ${displayComb};">${combined}</span>`;
             break;
           case 'AT' : staticPhrase = `*Angebot erhältlich vom ${fdateStr} bis zum ${sdateStr} um 23:59<span>&nbsp;</span>Uhr.<span style="display: ${displayMov};"><br>Dieses Angebot ist nur gültig bei einem Mindestbestellwert von ${MOV}<span>&nbsp;</span>€ ${excluding}${including}</span><span style="display: ${blockstyle2};"><br>Gültig für ${capsules.applicable}${capsules.applicable === '' ? znak.empty : znak[zapyatayaApp--]}${bundles.applicable}${bundles.applicable === '' ? znak.empty : znak[zapyatayaApp--]}${beans.applicable}${beans.applicable === '' ? znak.empty : znak[zapyatayaApp--]}${machines.applicable}${machines.applicable === '' ? znak.empty : znak[zapyatayaApp--]}${accessories.applicable}.</span><span style="display: ${blockstyle};"><br>Das Angebot gilt nicht für ${capsules.notApplicable}${capsules.notApplicable === '' ? znak.empty : znak[zapyatayaNotApp--]}${bundles.notApplicable}${bundles.notApplicable === '' ? znak.empty : znak[zapyatayaNotApp--]}${beans.notApplicable}${beans.notApplicable === '' ? znak.empty : znak[zapyatayaNotApp--]}${machines.notApplicable}${machines.notApplicable === '' ? znak.empty : znak[zapyatayaNotApp--]}${accessories.notApplicable}.</span><span style="display: ${displayComb};">${combined}</span>`;
+            break;
+          case 'CH_DE' : staticPhrase = `*Angebot erhältlich vom ${fdateStr} bis 23:59 Uhr am ${sdateStr}.<span style="display: ${displayMov};"><br>Dieses Angebot ist nur gültig ab einem Mindestbestellwert von ${MOV}<span>&nbsp;</span>CHF und nicht kombinierbar mit anderen L’OR Angeboten.</span><span style="display: ${blockstyle2};"><br>Gültig für Kapseln und Accessoires, wie beispielsweise Gläser oder Löffel.</span>`;
+            break;
+          case 'CH_FR' : staticPhrase = `*Promotion disponible du ${fdateStr} au ${sdateStr} jusqu’à<span>&nbsp;</span>23h59.<span style="display: ${displayMov};"><br>Cette promotion est valable pour toute commande d'un montant minimum de ${MOV}<span>&nbsp;</span>CHF et n’est pas cumulable avec d’autres promotions L’OR.</span><span style="display: ${blockstyle2};"><br>Valable sur les paquets de capsules et les accessoires, comme par exemple les verres ou les cuillères.`;
             break;
         }
     

@@ -95,6 +95,8 @@ padding:7px 0px 7px 0px;
           <option value="AT" id="ATmarketID">AT</option>
           <option value="BE_FR" id="BE_FRmarketID">BE_FR</option>
           <option value="BE_NL" id="BE_NLmarketID">BE_NL</option>
+          <option value="CH_DE" id="CH_DEmarketID">CH_DE</option>
+          <option value="CH_FR" id="CH_FRmarketID">CH_FR</option>
         </select>
 
     <div id="start" style="display: none; transition: 1s;">
@@ -114,15 +116,15 @@ padding:7px 0px 7px 0px;
             <input class="form-control" id="MOV" placeholder="MOV">
         </div>
         <div class="box1">
-            <div class="custom-control custom-radio">
+            <div id="excl" class="custom-control custom-radio">
                 <input type="radio" value="excluding" id="excluding" name="delivery" class="custom-control-input">
                 <label class="custom-control-label" for="excluding">Excluding delivery</label>
               </div>
-              <div class="custom-control custom-radio">
+              <div id="incl" class="custom-control custom-radio">
                 <input type="radio" value="including" id="including" name="delivery" class="custom-control-input">
                 <label class="custom-control-label" for="including">Including delivery</label>
               </div>
-              <div class="custom-control custom-switch">
+              <div id="notAppl" class="custom-control custom-switch">
                 <input type="checkbox" value="notApplicableBox" class="custom-control-input" id="notApplicableBox">
                 <label class="custom-control-label" for="notApplicableBox">Not Applicable</label>
               </div>
@@ -136,11 +138,11 @@ padding:7px 0px 7px 0px;
               </div>
         </div>
         <div class="box1">
-            <div class="custom-control custom-checkbox">
+            <div id="capsulesdiv" class="custom-control custom-checkbox">
                 <input type="checkbox" value="capsules" class="custom-control-input" id="capsules">
                 <label class="custom-control-label" for="capsules">Сapsules</label>
               </div>
-              <div class="custom-control custom-checkbox">
+              <div id="bundlesdiv" class="custom-control custom-checkbox">
                 <input type="checkbox" value="bundles" class="custom-control-input" id="bundles">
                 <label class="custom-control-label" for="bundles">Bundles</label>
               </div>
@@ -156,12 +158,13 @@ padding:7px 0px 7px 0px;
                 <input type="checkbox" value="machines" class="custom-control-input" id="machines">
                 <label class="custom-control-label" for="machines">Machines</label>
               </div>
-              <div class="custom-control custom-checkbox">
+              <div id="accessoriesdiv" class="custom-control custom-checkbox">
                 <input type="checkbox" value="accessories" class="custom-control-input" id="accessories">
                 <label class="custom-control-label" for="accessories">Accessories</label>
               </div>
         </div>
     </div>
+    <div id="chmarkets">
     <hr class="my-4">
     <div class="custom-control custom-switch">
         <input type="checkbox" value="secondPromo" class="custom-control-input" id="secondPromo">
@@ -245,6 +248,7 @@ padding:7px 0px 7px 0px;
                     <strong>Oh snap!</strong><br> Change market to: FR/AT/ES/BE_FR/BE_NL or IT and try again!
                   </div>
             </div>
+    </div>
     </div>
     <hr class="my-4">
     <div>
