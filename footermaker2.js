@@ -289,6 +289,7 @@
         incl.style.display = "block";
         notAppl.style.display = "block";
         combDiv.style.display = "block";
+        combDiv2.style.display = "block";
         capsulesdiv.style.display = "block";
         bundlesdiv.style.display = "block";
         accessoriesdiv.style.display = "block";
